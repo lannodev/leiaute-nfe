@@ -16,14 +16,18 @@
 package io.github.prbrios.leiaute.nfe.classes.status.retorno;
 
 
-import io.github.prbrios.leiaute.nfe.classes.status.retorno.RetConsStatServ;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
 import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.core.Persister;
+
+import java.io.StringReader;
+
+import static io.github.prbrios.leiaute.nfe.utils.XmlTestUtils.normalizeXml;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RetConsStatServTest {
 	
-	public static final String XML = "<retConsStatServ versao=\"0\"><tpAmb>1</tpAmb><verAplic>2</verAplic><cStat>3</cStat><xMotivo>4</xMotivo><cUF>5</cUF><dhRecbto>6</dhRecbto><dhRetorno>7</dhRetorno><xObs>8</xObs><tMed>9</tMed></retConsStatServ>";
+	public static final String XML = "<retConsStatServ xmlns=\"http://www.portalfiscal.inf.br/nfe\" versao=\"0\"><tpAmb>1</tpAmb><verAplic>2</verAplic><cStat>3</cStat><xMotivo>4</xMotivo><cUF>5</cUF><dhRecbto>6</dhRecbto><dhRetorno>7</dhRetorno><xObs>8</xObs><tMed>9</tMed></retConsStatServ>";
 
 	@Test
 	public void test1() {
@@ -39,13 +43,14 @@ public class RetConsStatServTest {
         obj.setxObs("8");
         obj.settMed("9");
 
-		assertEquals(XML, obj.toString());
+        assertEquals(normalizeXml(XML), normalizeXml(obj.toString()));
 	}
 
 	@Test
 	public void test2() throws Exception {
-		Persister persister = new Persister();
-		RetConsStatServ obj = persister.read(RetConsStatServ.class, XML);
+        JAXBContext context = JAXBContext.newInstance(RetConsStatServ.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        RetConsStatServ obj =(RetConsStatServ) unmarshaller.unmarshal(new StringReader(XML));
 
 		assertEquals("0", obj.getVersao());
         assertEquals("1", obj.getTpAmb());

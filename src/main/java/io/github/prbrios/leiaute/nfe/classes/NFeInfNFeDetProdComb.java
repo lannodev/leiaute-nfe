@@ -19,66 +19,69 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("comb")
-@Root(name = "comb")
+@XmlRootElement(name = "comb")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetProdComb extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cprodanp")
-    @Element(name = "cProdANP", required = false)
+    @XmlElement(name = "cProdANP")
     private String cProdANP;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("descanp")
-    @Element(name = "descANP", required = false)
+    @XmlElement(name = "descANP")
     private String descANP;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("pglp")
-    @Element(name = "pGLP", required = false)
+    @XmlElement(name = "pGLP")
     private String pGLP;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("pgnn")
-    @Element(name = "pGNn", required = false)
+    @XmlElement(name = "pGNn")
     private String pGNn;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("pgni")
-    @Element(name = "pGNi", required = false)
+    @XmlElement(name = "pGNi")
     private String pGNi;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vpart")
-    @Element(name = "vPart", required = false)
+    @XmlElement(name = "vPart")
     private String vPart;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("codif")
-    @Element(name = "CODIF", required = false)
+    @XmlElement(name = "CODIF")
     private String CODIF;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("qtemp")
-    @Element(name = "qTemp", required = false)
+    @XmlElement(name = "qTemp")
     private String qTemp;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ufcons")
-    @Element(name = "UFCons", required = false)
+    @XmlElement(name = "UFCons")
     private String UFCons;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cide")
-    @Element(name = "CIDE", required = false)
+    @XmlElement(name = "CIDE")
     private NFeInfNFeDetProdCombCIDE CIDE;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("encerrante")
-    @Element(name = "encerrante", required = false)
+    @XmlElement(name = "encerrante")
     private NFeInfNFeDetProdCombEncerrante encerrante;
 
     public NFeInfNFeDetProdComb() {}

@@ -19,25 +19,27 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @JsonRootName("pag")
-@Root(name = "pag")
+@XmlRootElement(name = "pag")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFePag extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("detpag")
-    @ElementList(name = "detPag", required = false, inline = true)
+    @XmlElement(name = "detPag")
     private List<NFeInfNFePagDetPag> detPag = new ArrayList<NFeInfNFePagDetPag>();
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vtroco")
-    @Element(name = "vTroco", required = false)
+    @XmlElement(name = "vTroco")
     private String vTroco;
 
     public NFeInfNFePag() {}

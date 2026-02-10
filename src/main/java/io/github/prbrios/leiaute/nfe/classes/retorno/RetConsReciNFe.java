@@ -16,48 +16,46 @@
 package io.github.prbrios.leiaute.nfe.classes.retorno;
 
 import io.github.prbrios.leiaute.nfe.Base;
+import jakarta.xml.bind.annotation.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Root;
-
-@Root(name = "retConsReciNFe")
+@XmlRootElement(name = "retConsReciNFe")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class RetConsReciNFe extends Base {
 
-	@Attribute(name = "versao", required = false)
+	@XmlAttribute(name = "versao")
 	private String versao;
 	
-	@Element(name = "tpAmb", required = false)
+	@XmlElement(name = "tpAmb")
 	private String tpAmb;
 	
-	@Element(name = "verAplic", required = false)
+	@XmlElement(name = "verAplic")
 	private String verAplic;
 	
-	@Element(name = "nRec", required = false)
+	@XmlElement(name = "nRec")
 	private String nRec;
 	
-	@Element(name = "cStat", required = false)
+	@XmlElement(name = "cStat")
 	private String cStat;
 	
-	@Element(name = "xMotivo", required = false)
+	@XmlElement(name = "xMotivo")
 	private String xMotivo;
 	
-	@Element(name = "cUF", required = false)
+	@XmlElement(name = "cUF")
 	private String cUF;
 	
-	@Element(name = "dhRecbto", required = false)
+	@XmlElement(name = "dhRecbto")
 	private String dhRecbto;
 	
-	@Element(name = "cMsg", required = false)
+	@XmlElement(name = "cMsg")
 	private String cMsg;
 	
-	@Element(name = "xMsg", required = false)
+	@XmlElement(name = "xMsg")
 	private String xMsg;
 	
-	@ElementList(name = "protNFe", required = false, inline = true)
+	@XmlElement(name = "protNFe")
 	private List<RetEnviNFeProtNFe> protNFe = new ArrayList<RetEnviNFeProtNFe>();
 
 	public String getVersao() {

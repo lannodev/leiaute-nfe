@@ -15,10 +15,14 @@
  */
 package io.github.prbrios.leiaute.nfe.classes.envio;
 
-import io.github.prbrios.leiaute.nfe.classes.envio.EnviNFe;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
 import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.core.Persister;
+
+import java.io.StringReader;
+
+import static io.github.prbrios.leiaute.nfe.utils.XmlTestUtils.normalizeXml;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class EnviNFeTest {
 
@@ -31,13 +35,14 @@ public class EnviNFeTest {
         obj.setIdLote("1");
         obj.setIndSinc("2");
 
-        assertEquals(XML, obj.toString());
+        assertEquals(normalizeXml(XML), normalizeXml(obj.toString()));
     }
 
     @Test
     public void test2() throws Exception {
-        Persister persister = new Persister();
-        EnviNFe obj = persister.read(EnviNFe.class, XML);
+        JAXBContext context = JAXBContext.newInstance(EnviNFe.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        EnviNFe obj =(EnviNFe) unmarshaller.unmarshal(new StringReader(XML));
 
         assertEquals("0", obj.getVersao());
         assertEquals("1", obj.getIdLote());

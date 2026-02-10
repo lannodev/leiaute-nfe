@@ -16,10 +16,13 @@
 package io.github.prbrios.leiaute.nfe.classes;
 
 
-import io.github.prbrios.leiaute.nfe.classes.NFeInfNFeDetImpostoISSQN;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
 import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.core.Persister;
+
+import java.io.StringReader;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class NFeInfNFeDetImpostoISSQNTest {
 
@@ -50,8 +53,9 @@ public class NFeInfNFeDetImpostoISSQNTest {
 
     @Test
     public void test2() throws Exception {
-        Persister persister = new Persister();
-        NFeInfNFeDetImpostoISSQN obj = persister.read(NFeInfNFeDetImpostoISSQN.class, XML);
+        JAXBContext context = JAXBContext.newInstance(NFeInfNFeDetImpostoISSQN.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        NFeInfNFeDetImpostoISSQN obj =(NFeInfNFeDetImpostoISSQN) unmarshaller.unmarshal(new StringReader(XML));
 
         assertEquals("0", obj.getvBC());
         assertEquals("1", obj.getvAliq());

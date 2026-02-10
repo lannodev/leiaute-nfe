@@ -19,78 +19,81 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("icmssn201")
-@Root(name = "ICMSSN201")
+@XmlRootElement(name = "ICMSSN201")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetImpostoICMSICMSSN201 extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("orig")
-    @Element(name = "orig", required = false)
+    @XmlElement(name = "orig")
     private String orig;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("csosn")
-    @Element(name = "CSOSN", required = false)
+    @XmlElement(name = "CSOSN")
     private String CSOSN;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("modbcst")
-    @Element(name = "modBCST", required = false)
+    @XmlElement(name = "modBCST")
     private String modBCST;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("pmvast")
-    @Element(name = "pMVAST", required = false)
+    @XmlElement(name = "pMVAST")
     private String pMVAST;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("predbcst")
-    @Element(name = "pRedBCST", required = false)
+    @XmlElement(name = "pRedBCST")
     private String pRedBCST;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vbcst")
-    @Element(name = "vBCST", required = false)
+    @XmlElement(name = "vBCST")
     private String vBCST;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("picmsst")
-    @Element(name = "pICMSST", required = false)
+    @XmlElement(name = "pICMSST")
     private String pICMSST;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vicmsst")
-    @Element(name = "vICMSST", required = false)
+    @XmlElement(name = "vICMSST")
     private String vICMSST;
 
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vbcfcpst")
-    @Element(name = "vBCFCPST", required = false)
+    @XmlElement(name = "vBCFCPST")
     private String vBCFCPST;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("pfcpst")
-    @Element(name = "pFCPST", required = false)
+    @XmlElement(name = "pFCPST")
     private String pFCPST;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vfcpst")
-    @Element(name = "vFCPST", required = false)
+    @XmlElement(name = "vFCPST")
     private String vFCPST;
 
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("pcredsn")
-    @Element(name = "pCredSN", required = false)
+    @XmlElement(name = "pCredSN")
     private String pCredSN;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vcredicmssn")
-    @Element(name = "vCredICMSSN", required = false)
+    @XmlElement(name = "vCredICMSSN")
     private String vCredICMSSN;
 
     public NFeInfNFeDetImpostoICMSICMSSN201() {}

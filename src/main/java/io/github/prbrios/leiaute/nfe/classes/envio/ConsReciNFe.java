@@ -16,22 +16,19 @@
 package io.github.prbrios.leiaute.nfe.classes.envio;
 
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Namespace;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.*;
 
-@Root(name = "consReciNFe")
-@Namespace(reference = "http://www.portalfiscal.inf.br/nfe")
+@XmlRootElement(name = "consReciNFe", namespace = "http://www.portalfiscal.inf.br/nfe")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ConsReciNFe extends Base {
-	
-	@Attribute(name = "versao", required = false)
+
+	@XmlAttribute(name = "versao")
 	private String versao;
-	
-	@Element(name = "tpAmb", required = false)
+
+	@XmlElement(name = "tpAmb")
 	private String tpAmb;
-	
-	@Element(name = "nRec", required = false)
+
+	@XmlElement(name = "nRec")
 	private String nRec;
 
 	public String getVersao() {

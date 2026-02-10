@@ -16,13 +16,17 @@
 package io.github.prbrios.leiaute.nfe.classes;
 
 
-import io.github.prbrios.leiaute.nfe.classes.NFeProc;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.Namespace;
-import org.simpleframework.xml.core.Persister;
 
-@Namespace(reference = "http://www.portalfiscal.inf.br/nfe")
+import java.io.StringReader;
+
+import static io.github.prbrios.leiaute.nfe.utils.XmlTestUtils.normalizeXml;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+@XmlRootElement(name = "nfeProc",namespace = "http://www.portalfiscal.inf.br/nfe")
 public class NFeProcTest {
 
     public static final String XML = "<nfeProc versao=\"4.00\" xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>";
@@ -31,14 +35,15 @@ public class NFeProcTest {
     public void test1() {
         NFeProc obj = new NFeProc();
         obj.setVersao("4.00");
-        
-        assertEquals(XML, obj.toString());
+
+        assertEquals(normalizeXml(XML), normalizeXml(obj.toString()));
     }
     
     @Test
     public void test2() throws Exception {
-        Persister persister = new Persister();
-        NFeProc obj = persister.read(NFeProc.class, XML);
+        JAXBContext context = JAXBContext.newInstance(NFeProc.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        NFeProc obj =(NFeProc) unmarshaller.unmarshal(new StringReader(XML));
         
         assertEquals("4.00", obj.getVersao());
     }

@@ -1,59 +1,58 @@
 package io.github.prbrios.leiaute.nfe.classes.evento.retorno;
 
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.*;
 
-@Root(name = "infEvento")
+@XmlRootElement(name = "infEvento")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class RetEnvEventoRetEventoInfEvento extends Base {
 
-    @Attribute(name = "Id", required = false)
+	@XmlAttribute(name = "Id")
     private String id;
 
-    @Element(name = "tpAmb", required = false)
+    @XmlElement(name = "tpAmb")
     private String tpAmb;
 
-    @Element(name = "verAplic", required = false)
+    @XmlElement(name = "verAplic")
     private String verAplic;
 
-    @Element(name = "cOrgao", required = false)
+    @XmlElement(name = "cOrgao")
     private String cOrgao;
 
-    @Element(name = "cStat", required = false)
+    @XmlElement(name = "cStat")
     private String cStat;
 
-    @Element(name = "xMotivo", required = false)
+    @XmlElement(name = "xMotivo")
     private String xMotivo;
 
-    @Element(name = "chNFe", required = false)
+    @XmlElement(name = "chNFe")
     private String chNFe;
 
-    @Element(name = "tpEvento", required = false)
+    @XmlElement(name = "tpEvento")
     private String tpEvento;
 
-    @Element(name = "xEvento", required = false)
+    @XmlElement(name = "xEvento")
     private String xEvento;
 
-    @Element(name = "nSeqEvento", required = false)
+    @XmlElement(name = "nSeqEvento")
     private String nSeqEvento;
     
-    @Element(name = "cOrgaoAutor", required = false)
+    @XmlElement(name = "cOrgaoAutor")
     private String cOrgaoAutor;
 
-    @Element(name = "CNPJDest", required = false)
+    @XmlElement(name = "CNPJDest")
     private String CNPJDest;
 
-    @Element(name = "CPFDest", required = false)
+    @XmlElement(name = "CPFDest")
     private String CPFDest;
 
-    @Element(name = "emailDest", required = false)
+    @XmlElement(name = "emailDest")
     private String emailDest;
 
-    @Element(name = "dhRegEvento", required = false)
+    @XmlElement(name = "dhRegEvento")
     private String dhRegEvento;
 
-    @Element(name = "nProt", required = false)
+    @XmlElement(name = "nProt")
     private String nProt;
 
 	public String getId() {

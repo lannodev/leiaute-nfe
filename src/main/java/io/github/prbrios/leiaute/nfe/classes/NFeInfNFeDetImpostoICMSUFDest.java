@@ -19,56 +19,59 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("icmsufdest")
-@Root(name = "ICMSUFDest")
+@XmlRootElement(name = "ICMSUFDest")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetImpostoICMSUFDest extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vbcufdest")
-    @Element(name = "vBCUFDest", required = false)
+    @XmlElement(name = "vBCUFDest")
     private String vBCUFDest;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vbcfcpufdest")
-    @Element(name = "vBCFCPUFDest", required = false)
+    @XmlElement(name = "vBCFCPUFDest")
     private String vBCFCPUFDest;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("pfcpufdest")
-    @Element(name = "pFCPUFDest", required = false)
+    @XmlElement(name = "pFCPUFDest")
     private String pFCPUFDest;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("picmsufdest")
-    @Element(name = "pICMSUFDest", required = false)
+    @XmlElement(name = "pICMSUFDest")
     private String pICMSUFDest;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("picmsinter")
-    @Element(name = "pICMSInter", required = false)
+    @XmlElement(name = "pICMSInter")
     private String pICMSInter;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("picmsinterpart")
-    @Element(name = "pICMSInterPart", required = false)
+    @XmlElement(name = "pICMSInterPart")
     private String pICMSInterPart;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vfcpufdest")
-    @Element(name = "vFCPUFDest", required = false)
+    @XmlElement(name = "vFCPUFDest")
     private String vFCPUFDest;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vicmsufdest")
-    @Element(name = "vICMSUFDest", required = false)
+    @XmlElement(name = "vICMSUFDest")
     private String vICMSUFDest;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vicmsufremet")
-    @Element(name = "vICMSUFRemet", required = false)
+    @XmlElement(name = "vICMSUFRemet")
     private String vICMSUFRemet;
 
     public NFeInfNFeDetImpostoICMSUFDest() {}

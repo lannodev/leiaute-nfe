@@ -15,29 +15,28 @@
  */
 package io.github.prbrios.leiaute.nfe.classes.retorno;
 
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Namespace;
-import org.simpleframework.xml.Root;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
+import jakarta.xml.bind.annotation.*;
 
 @JsonRootName("protnfe")
-@Root(name = "protNFe")
-@Namespace(reference = "http://www.portalfiscal.inf.br/nfe")
+@XmlRootElement(
+        name = "protNFe",
+        namespace = "http://www.portalfiscal.inf.br/nfe"
+)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class RetEnviNFeProtNFe extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("versao")
-    @Attribute(name = "versao", required = false)
+    @XmlAttribute(name = "versao")
     private String versao;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("infprot")
-    @Element(name = "infProt", required = false)
+    @XmlElement(name = "infProt")
     private RetEnviNFeProtNFeInfProt infProt;
 
     public RetEnviNFeProtNFe() {}

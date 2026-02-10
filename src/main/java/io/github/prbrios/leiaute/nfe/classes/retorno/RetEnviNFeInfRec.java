@@ -15,20 +15,22 @@
  */
 package io.github.prbrios.leiaute.nfe.classes.retorno;
 
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
-
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("infRec")
-@Root(name = "infRec")
+@XmlRootElement(name = "infRec")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class RetEnviNFeInfRec extends Base {
 
-	@Element(name = "nRec", required = false)
+	@XmlElement(name = "nRec")
 	private String nRec;
 	
-	@Element(name = "tMed", required = false)
+	@XmlElement(name = "tMed")
     private String tMed;
 
 	public String getnRec() {

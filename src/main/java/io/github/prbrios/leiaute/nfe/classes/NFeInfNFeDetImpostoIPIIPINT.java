@@ -19,16 +19,19 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("ipint")
-@Root(name = "IPINT")
+@XmlRootElement(name = "IPINT")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetImpostoIPIIPINT extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cst")
-    @Element(name = "CST", required = false)
+    @XmlElement(name = "CST")
     private String CST;
 
     public NFeInfNFeDetImpostoIPIIPINT() {}

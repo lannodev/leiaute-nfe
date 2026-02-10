@@ -16,10 +16,13 @@
 package io.github.prbrios.leiaute.nfe.classes;
 
 
-import io.github.prbrios.leiaute.nfe.classes.NFeInfNFeDetProdVeicProd;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
 import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.core.Persister;
+
+import java.io.StringReader;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class NFeInfNFeDetProdVeicProdTest {
 
@@ -58,8 +61,9 @@ public class NFeInfNFeDetProdVeicProdTest {
 
     @Test
     public void test2() throws Exception {
-        Persister persister = new Persister();
-        NFeInfNFeDetProdVeicProd obj = persister.read(NFeInfNFeDetProdVeicProd.class, XML);
+        JAXBContext context = JAXBContext.newInstance(NFeInfNFeDetProdVeicProd.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        NFeInfNFeDetProdVeicProd obj =(NFeInfNFeDetProdVeicProd) unmarshaller.unmarshal(new StringReader(XML));
 
         assertEquals("0", obj.getTpOp());
         assertEquals("1", obj.getChassi());

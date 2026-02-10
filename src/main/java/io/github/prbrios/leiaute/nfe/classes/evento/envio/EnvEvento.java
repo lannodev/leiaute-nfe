@@ -16,26 +16,22 @@
 package io.github.prbrios.leiaute.nfe.classes.evento.envio;
 
 import io.github.prbrios.leiaute.nfe.Base;
+import jakarta.xml.bind.annotation.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Namespace;
-import org.simpleframework.xml.Root;
-
-@Root(name = "envEvento")
-@Namespace(reference = "http://www.portalfiscal.inf.br/nfe")
+@XmlRootElement(name = "envEvento", namespace = "http://www.portalfiscal.inf.br/nfe")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class EnvEvento extends Base {
 
-    @Attribute(name = "versao", required = false)
+	@XmlAttribute(name = "versao")
     private String versao;
 
-    @Element(name = "idLote", required = false)
+	@XmlElement(name = "idLote", namespace = "http://www.portalfiscal.inf.br/nfe")
     private String idLote;
 
-    @ElementList(name = "evento", required = false, inline = true)
+	@XmlElement(name = "evento")
     private List<EnvEventoEvento> eventos = new ArrayList<EnvEventoEvento>();
 
     public EnvEvento(){}

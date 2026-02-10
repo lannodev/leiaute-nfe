@@ -19,31 +19,34 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("fat")
-@Root(name = "fat")
+@XmlRootElement(name = "fat")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeCobrFat extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("nfat")
-    @Element(name = "nFat", required = false)
+    @XmlElement(name = "nFat")
     private String nFat;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vorig")
-    @Element(name = "vOrig", required = false)
+    @XmlElement(name = "vOrig")
     private String vOrig;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vdesc")
-    @Element(name = "vDesc", required = false)
+    @XmlElement(name = "vDesc")
     private String vDesc;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vliq")
-    @Element(name = "vLiq", required = false)
+    @XmlElement(name = "vLiq")
     private String vLiq;
 
     public NFeInfNFeCobrFat() {}

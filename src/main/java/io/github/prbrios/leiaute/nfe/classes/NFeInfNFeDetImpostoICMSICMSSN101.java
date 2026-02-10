@@ -19,31 +19,34 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("icmssn101")
-@Root(name = "ICMSSN101")
+@XmlRootElement(name = "ICMSSN101")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetImpostoICMSICMSSN101 extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("orig")
-    @Element(name = "orig", required = false)
+    @XmlElement(name = "orig")
     private String orig;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("csosn")
-    @Element(name = "CSOSN", required = false)
+    @XmlElement(name = "CSOSN")
     private String CSOSN;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("pcredsn")
-    @Element(name = "pCredSN", required = false)
+    @XmlElement(name = "pCredSN")
     private String pCredSN;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vcredicmssn")
-    @Element(name = "vCredICMSSN", required = false)
+    @XmlElement(name = "vCredICMSSN")
     private String vCredICMSSN;
 
     public NFeInfNFeDetImpostoICMSICMSSN101() {}

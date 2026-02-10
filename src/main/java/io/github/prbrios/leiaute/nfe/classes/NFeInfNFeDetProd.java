@@ -19,200 +19,202 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @JsonRootName("prod")
-@Root(name = "prod")
+@XmlRootElement(name = "prod")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetProd extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cprod")
-    @Element(name = "cProd", required = false)
+    @XmlElement(name = "cProd")
     private String cProd;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cean")
-    @Element(name = "cEAN", required = false)
+    @XmlElement(name = "cEAN")
     private String cEAN;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cbarra")
-    @Element(name = "cBarra", required = false)
+    @XmlElement(name = "cBarra")
     private String cBarra;
     
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xprod")
-    @Element(name = "xProd", required = false)
+    @XmlElement(name = "xProd")
     private String xProd;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ncm")
-    @Element(name = "NCM", required = false)
+    @XmlElement(name = "NCM")
     private String NCM;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("nve")
-    @ElementList(name = "NVE", required = false, inline = true)
+    @XmlElement(name = "NVE")
     private List<NFeInfNFeDetProdNVE> NVE = new ArrayList<NFeInfNFeDetProdNVE>();
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cest")
-    @Element(name = "CEST", required = false)
+    @XmlElement(name = "CEST")
     private String CEST;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("indescala")
-    @Element(name = "indEscala", required = false)
+    @XmlElement(name = "indEscala")
     private String indEscala;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cnpjfab")
-    @Element(name = "CNPJFab", required = false)
+    @XmlElement(name = "CNPJFab")
     private String CNPJFab;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cbenef")
-    @Element(name = "cBenef", required = false)
+    @XmlElement(name = "cBenef")
     private String cBenef;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("extipi")
-    @Element(name = "EXTIPI", required = false)
+    @XmlElement(name = "EXTIPI")
     private String EXTIPI;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cfop")
-    @Element(name = "CFOP", required = false)
+    @XmlElement(name = "CFOP")
     private String CFOP;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ucom")
-    @Element(name = "uCom", required = false)
+    @XmlElement(name = "uCom")
     private String uCom;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("qcom")
-    @Element(name = "qCom", required = false)
+    @XmlElement(name = "qCom")
     private String qCom;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vuncom")
-    @Element(name = "vUnCom", required = false)
+    @XmlElement(name = "vUnCom")
     private String vUnCom;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vprod")
-    @Element(name = "vProd", required = false)
+    @XmlElement(name = "vProd")
     private String vProd;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ceantrib")
-    @Element(name = "cEANTrib", required = false)
+    @XmlElement(name = "cEANTrib")
     private String cEANTrib;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cbarratrib")
-    @Element(name = "cBarraTrib", required = false)
+    @XmlElement(name = "cBarraTrib")
     private String cBarraTrib;
     
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("utrib")
-    @Element(name = "uTrib", required = false)
+    @XmlElement(name = "uTrib")
     private String uTrib;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("qtrib")
-    @Element(name = "qTrib", required = false)
+    @XmlElement(name = "qTrib")
     private String qTrib;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vuntrib")
-    @Element(name = "vUnTrib", required = false)
+    @XmlElement(name = "vUnTrib")
     private String vUnTrib;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vfrete")
-    @Element(name = "vFrete", required = false)
+    @XmlElement(name = "vFrete")
     private String vFrete;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vseg")
-    @Element(name = "vSeg", required = false)
+    @XmlElement(name = "vSeg")
     private String vSeg;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vdesc")
-    @Element(name = "vDesc", required = false)
+    @XmlElement(name = "vDesc")
     private String vDesc;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("voutro")
-    @Element(name = "vOutro", required = false)
+    @XmlElement(name = "vOutro")
     private String vOutro;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("indtot")
-    @Element(name = "indTot", required = false)
+    @XmlElement(name = "indTot")
     private String indTot;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("di")
-    @ElementList(name = "DI", required = false, inline = true)
+    @XmlElement(name = "DI")
     private List<NFeInfNFeDetProdDI> DI = new ArrayList<NFeInfNFeDetProdDI>();
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("detexport")
-    @ElementList(name = "detExport", required = false, inline = true)
+    @XmlElement(name = "detExport")
     private List<NFeInfNFeDetProdDetExport> detExport = new ArrayList<NFeInfNFeDetProdDetExport>();
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xped")
-    @Element(name = "xPed", required = false)
+    @XmlElement(name = "xPed")
     private String xPed;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("nitemped")
-    @Element(name = "nItemPed", required = false)
+    @XmlElement(name = "nItemPed")
     private String nItemPed;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("nfci")
-    @Element(name = "nFCI", required = false)
+    @XmlElement(name = "nFCI")
     private String nFCI;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("rastro")
-    @ElementList(name = "rastro", required = false, inline = true)
+    @XmlElement(name = "rastro")
     private List<NFeInfNFeDetProdRastro> rastro = new ArrayList<NFeInfNFeDetProdRastro>();
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("veicprod")
-    @Element(name = "veicProd", required = false)
+    @XmlElement(name = "veicProd")
     private NFeInfNFeDetProdVeicProd veicProd;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("med")
-    @Element(name = "med", required = false)
+    @XmlElement(name = "med")
     private NFeInfNFeDetProdMed med;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("arma")
-    @ElementList(name = "arma", required = false, inline = true)
+    @XmlElement(name = "arma")
     private List<NFeInfNFeDetProdArma> arma = new ArrayList<NFeInfNFeDetProdArma>();
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("comb")
-    @Element(name = "comb", required = false)
+    @XmlElement(name = "comb")
     private NFeInfNFeDetProdComb comb;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("nrecopi")
-    @Element(name = "nRECOPI", required = false)
+    @XmlElement(name = "nRECOPI")
     private String nRECOPI;
 
     public NFeInfNFeDetProd() {}

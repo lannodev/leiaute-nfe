@@ -1,22 +1,20 @@
 package io.github.prbrios.leiaute.nfe.classes.evento.retorno;
 
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
-
 import io.github.prbrios.leiaute.nfe.assinatura.Signature;
+import jakarta.xml.bind.annotation.*;
 
-@Root(name = "retEvento")
+@XmlRootElement(name = "retEvento")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class RetEnvEventoRetEvento extends Base {
 
-    @Attribute(name = "versao", required = false)
+	@XmlAttribute(name = "versao")
     private String versao = "1.00";
 
-    @Element(name = "infEvento", required = false)
+    @XmlElement(name = "infEvento")
     private RetEnvEventoRetEventoInfEvento infEvento;
 
-    @Element(name = "Signature", required = false)
+    @XmlElement(name = "Signature")
     private Signature signature;
 
 	public String getVersao() {

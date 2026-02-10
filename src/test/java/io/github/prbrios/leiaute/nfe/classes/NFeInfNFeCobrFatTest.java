@@ -15,11 +15,14 @@
  */
 package io.github.prbrios.leiaute.nfe.classes;
 
-import io.github.prbrios.leiaute.nfe.classes.NFeInfNFeCobrFat;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
+import org.junit.jupiter.api.Test;
+
+import java.io.StringReader;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.core.Persister;
 
 public class NFeInfNFeCobrFatTest {
 
@@ -38,8 +41,10 @@ public class NFeInfNFeCobrFatTest {
 
     @Test
     public void test2() throws Exception {
-        Persister persister = new Persister();
-        NFeInfNFeCobrFat obj = persister.read(NFeInfNFeCobrFat.class, XML);
+        JAXBContext context = JAXBContext.newInstance(NFeInfNFeCobrFat.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        NFeInfNFeCobrFat obj =(NFeInfNFeCobrFat) unmarshaller.unmarshal(new StringReader(XML));
+
         assertEquals("0", obj.getnFat());
         assertEquals("1", obj.getvOrig());
         assertEquals("2", obj.getvDesc());

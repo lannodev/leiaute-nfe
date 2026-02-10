@@ -1,37 +1,34 @@
 package io.github.prbrios.leiaute.nfe.classes.evento.retorno;
 
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Namespace;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.*;
 
-@Root(name = "retEnvEvento")
-@Namespace(reference = "http://www.portalfiscal.inf.br/nfe")
+@XmlRootElement(name = "retEnvEvento", namespace = "http://www.portalfiscal.inf.br/nfe")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class RetEnvEvento extends Base {
 
-	@Attribute(name = "versao", required = false)
+	@XmlAttribute(name = "versao")
 	private String versao;
 
-	@Element(name = "idLote", required = false)
+	@XmlElement(name = "idLote", namespace = "http://www.portalfiscal.inf.br/nfe")
 	private String idLote;
 
-	@Element(name = "tpAmb", required = false)
+	@XmlElement(name = "tpAmb", namespace = "http://www.portalfiscal.inf.br/nfe")
 	private String tpAmb;
 
-	@Element(name = "verAplic", required = false)
+	@XmlElement(name = "verAplic", namespace = "http://www.portalfiscal.inf.br/nfe")
 	private String verAplic;
 
-	@Element(name = "cOrgao", required = false)
+	@XmlElement(name = "cOrgao", namespace = "http://www.portalfiscal.inf.br/nfe")
 	private String cOrgao;
 
-	@Element(name = "cStat", required = false)
+	@XmlElement(name = "cStat", namespace = "http://www.portalfiscal.inf.br/nfe")
 	private String cStat;
 
-	@Element(name = "xMotivo", required = false)
+	@XmlElement(name = "xMotivo", namespace = "http://www.portalfiscal.inf.br/nfe")
 	private String xMotivo;
 
-	@Element(name = "retEvento", required = false)
+	@XmlElement(name = "retEvento")
 	private RetEnvEventoRetEvento retEvento;
 
 	public String getVersao() {

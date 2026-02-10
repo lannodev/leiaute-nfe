@@ -16,47 +16,45 @@
 package io.github.prbrios.leiaute.nfe.classes.evento.envio;
 
 import io.github.prbrios.leiaute.nfe.Base;
+import jakarta.xml.bind.annotation.*;
+
 import java.util.List;
 
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Root;
-
-@Root(name = "detEvento")
+@XmlRootElement(name = "detEvento")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class EnvEventoEventoInfEventoDetEvento extends Base {
 
-    @Attribute(name = "versao", required = false)
+	@XmlAttribute(name = "versao")
     private String versao;
 
-    @Element(name = "descEvento", required = false)
+    @XmlElement(name = "descEvento")
     private String descEvento;
     
-    @Element(name = "cOrgaoAutor", required = false)
+    @XmlElement(name = "cOrgaoAutor")
     private String cOrgaoAutor;
     
-    @Element(name = "tpAutor", required = false)
+    @XmlElement(name = "tpAutor")
     private String tpAutor;
     
-    @Element(name = "verAplic", required = false)
+    @XmlElement(name = "verAplic")
     private String verAplic;
-    
-    @ElementList(name = "autXML", required = false, inline = true)
+
+	@XmlElement(name = "autXML")
     private List<EnvEventoEventoInfEventoDetEventoAutXML> autXML;
     
-    @Element(name = "tpAutorizacao", required = false)
+    @XmlElement(name = "tpAutorizacao")
     private String tpAutorizacao;
     
-    @Element(name = "nProt", required = false)
+    @XmlElement(name = "nProt")
     private String nProt;
 
-    @Element(name = "xJust", required = false)
+    @XmlElement(name = "xJust")
     private String xJust;
 
-    @Element(name = "xCorrecao", required = false)
+    @XmlElement(name = "xCorrecao")
     private String xCorrecao;
 
-    @Element(name = "xCondUso", required = false)
+    @XmlElement(name = "xCondUso")
     private String xCondUso;
 
     public EnvEventoEventoInfEventoDetEvento() {}

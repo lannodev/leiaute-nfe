@@ -19,25 +19,27 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @JsonRootName("cobr")
-@Root(name = "cobr")
+@XmlRootElement(name = "cobr")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeCobr extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("fat")
-    @Element(name = "fat", required = false)
+    @XmlElement(name = "fat")
     private NFeInfNFeCobrFat fat;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("dup")
-    @ElementList(name = "dup", required = false, inline = true)
+    @XmlElement(name = "dup")
     private List<NFeInfNFeCobrDup> dup = new ArrayList<NFeInfNFeCobrDup>();
 
     public NFeInfNFeCobr() {}

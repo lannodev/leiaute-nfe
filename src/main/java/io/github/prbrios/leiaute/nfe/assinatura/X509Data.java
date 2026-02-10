@@ -15,11 +15,14 @@
  */
 package io.github.prbrios.leiaute.nfe.assinatura;
 
-import org.simpleframework.xml.Element;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class X509Data {
 
-    @Element(name = "X509Certificate", required = false)
+    @XmlElement(name = "X509Certificate", required = false)
     private String x509certificate;
 
 	public String getX509certificate() {

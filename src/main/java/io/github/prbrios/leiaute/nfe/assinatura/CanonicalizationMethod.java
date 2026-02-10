@@ -15,11 +15,14 @@
  */
 package io.github.prbrios.leiaute.nfe.assinatura;
 
-import org.simpleframework.xml.Attribute;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAttribute;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class CanonicalizationMethod {
 
-    @Attribute(name = "Algorithm", required = false)
+	@XmlAttribute(name = "Algorithm")
     private String algorithm;
 
 	public String getAlgorithm() {

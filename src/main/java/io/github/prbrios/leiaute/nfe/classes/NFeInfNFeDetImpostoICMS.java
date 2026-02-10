@@ -19,96 +19,99 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("icms")
-@Root(name = "ICMS")
+@XmlRootElement(name = "ICMS")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetImpostoICMS extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("icms00")
-    @Element(name = "ICMS00", required = false)
+    @XmlElement(name = "ICMS00")
     private NFeInfNFeDetImpostoICMSICMS00 ICMS00;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("icms10")
-    @Element(name = "ICMS10", required = false)
+    @XmlElement(name = "ICMS10")
     private NFeInfNFeDetImpostoICMSICMS10 ICMS10;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("icms20")
-    @Element(name = "ICMS20", required = false)
+    @XmlElement(name = "ICMS20")
     private NFeInfNFeDetImpostoICMSICMS20 ICMS20;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("icms30")
-    @Element(name = "ICMS30", required = false)
+    @XmlElement(name = "ICMS30")
     private NFeInfNFeDetImpostoICMSICMS30 ICMS30;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("icms40")
-    @Element(name = "ICMS40", required = false)
+    @XmlElement(name = "ICMS40")
     private NFeInfNFeDetImpostoICMSICMS40 ICMS40;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("icms51")
-    @Element(name = "ICMS51", required = false)
+    @XmlElement(name = "ICMS51")
     private NFeInfNFeDetImpostoICMSICMS51 ICMS51;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("icms60")
-    @Element(name = "ICMS60", required = false)
+    @XmlElement(name = "ICMS60")
     private NFeInfNFeDetImpostoICMSICMS60 ICMS60;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("icms70")
-    @Element(name = "ICMS70", required = false)
+    @XmlElement(name = "ICMS70")
     private NFeInfNFeDetImpostoICMSICMS70 ICMS70;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("icms90")
-    @Element(name = "ICMS90", required = false)
+    @XmlElement(name = "ICMS90")
     private NFeInfNFeDetImpostoICMSICMS90 ICMS90;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("icmspart")
-    @Element(name = "ICMSPart", required = false)
+    @XmlElement(name = "ICMSPart")
     private NFeInfNFeDetImpostoICMSICMSPart ICMSPart;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("icmsst")
-    @Element(name = "ICMSST", required = false)
+    @XmlElement(name = "ICMSST")
     private NFeInfNFeDetImpostoICMSICMSST ICMSST;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("icmssn101")
-    @Element(name = "ICMSSN101", required = false)
+    @XmlElement(name = "ICMSSN101")
     private NFeInfNFeDetImpostoICMSICMSSN101 ICMSSN101;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("icmssn102")
-    @Element(name = "ICMSSN102", required = false)
+    @XmlElement(name = "ICMSSN102")
     private NFeInfNFeDetImpostoICMSICMSSN102 ICMSSN102;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("icmssn201")
-    @Element(name = "ICMSSN201", required = false)
+    @XmlElement(name = "ICMSSN201")
     private NFeInfNFeDetImpostoICMSICMSSN201 ICMSSN201;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("icmssn202")
-    @Element(name = "ICMSSN202", required = false)
+    @XmlElement(name = "ICMSSN202")
     private NFeInfNFeDetImpostoICMSICMSSN202 ICMSSN202;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("icmssn500")
-    @Element(name = "ICMSSN500", required = false)
+    @XmlElement(name = "ICMSSN500")
     private NFeInfNFeDetImpostoICMSICMSSN500 ICMSSN500;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("icmssn900")
-    @Element(name = "ICMSSN900", required = false)
+    @XmlElement(name = "ICMSSN900")
     private NFeInfNFeDetImpostoICMSICMSSN900 ICMSSN900;
 
     public NFeInfNFeDetImpostoICMS() {}

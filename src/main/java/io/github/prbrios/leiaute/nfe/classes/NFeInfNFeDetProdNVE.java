@@ -15,13 +15,16 @@
  */
 package io.github.prbrios.leiaute.nfe.classes;
 
-import org.simpleframework.xml.Root;
-import org.simpleframework.xml.Text;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlValue;
 
-@Root(name = "NVE")
+@XmlRootElement(name = "NVE")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetProdNVE {
 
-    @Text
+    @XmlValue
     private String value;
 
     public void setText(String v) {

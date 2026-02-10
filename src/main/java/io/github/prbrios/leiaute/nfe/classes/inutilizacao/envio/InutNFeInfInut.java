@@ -16,44 +16,43 @@
 package io.github.prbrios.leiaute.nfe.classes.inutilizacao.envio;
 
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.*;
 
-@Root(name = "infInut")
+@XmlRootElement(name = "infInut")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class InutNFeInfInut extends Base {
 
-    @Attribute(name = "Id", required = false)
+	@XmlAttribute(name = "Id")
     private String id;
 
-    @Element(name="tpAmb", required = false)
+    @XmlElement(name="tpAmb")
     private String tpAmb;
 
-    @Element(name="xServ", required = false)
+    @XmlElement(name="xServ")
     private String xServ;
 
-    @Element(name="cUF", required = false)
+    @XmlElement(name="cUF")
     private String cUF;
 
-    @Element(name="ano", required = false)
+    @XmlElement(name="ano")
     private String ano;
 
-    @Element(name="CNPJ", required = false)
+    @XmlElement(name="CNPJ")
     private String CNPJ;
 
-    @Element(name="mod", required = false)
+    @XmlElement(name="mod")
     private String mod;
 
-    @Element(name="serie", required = false)
+    @XmlElement(name="serie")
     private String serie;
 
-    @Element(name="nNFIni", required = false)
+    @XmlElement(name="nNFIni")
     private String nNFIni;
 
-    @Element(name="nNFFin", required = false)
+    @XmlElement(name="nNFFin")
     private String nNFFin;
 
-    @Element(name="xJust", required = false)
+    @XmlElement(name="xJust")
     private String xJust;
 
 	public String getId() {

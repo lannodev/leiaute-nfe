@@ -19,71 +19,74 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("issqntot")
-@Root(name = "ISSQNtot")
+@XmlRootElement(name = "ISSQNtot")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeTotalISSQNtot extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vserv")
-    @Element(name = "vServ", required = false)
+    @XmlElement(name = "vServ")
     private String vServ;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vbc")
-    @Element(name = "vBC", required = false)
+    @XmlElement(name = "vBC")
     private String vBC;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("viss")
-    @Element(name = "vISS", required = false)
+    @XmlElement(name = "vISS")
     private String vISS;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vpis")
-    @Element(name = "vPIS", required = false)
+    @XmlElement(name = "vPIS")
     private String vPIS;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vcofins")
-    @Element(name = "vCOFINS", required = false)
+    @XmlElement(name = "vCOFINS")
     private String vCOFINS;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("dcompet")
-    @Element(name = "dCompet", required = false)
+    @XmlElement(name = "dCompet")
     private String dCompet;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vdeducao")
-    @Element(name = "vDeducao", required = false)
+    @XmlElement(name = "vDeducao")
     private String vDeducao;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("voutro")
-    @Element(name = "vOutro", required = false)
+    @XmlElement(name = "vOutro")
     private String vOutro;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vdescincond")
-    @Element(name = "vDescIncond", required = false)
+    @XmlElement(name = "vDescIncond")
     private String vDescIncond;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vdesccond")
-    @Element(name = "vDescCond", required = false)
+    @XmlElement(name = "vDescCond")
     private String vDescCond;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vissret")
-    @Element(name = "vISSRet", required = false)
+    @XmlElement(name = "vISSRet")
     private String vISSRet;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cregtrib")
-    @Element(name = "cRegTrib", required = false)
+    @XmlElement(name = "cRegTrib")
     private String cRegTrib;
 
     public NFeInfNFeTotalISSQNtot() {}

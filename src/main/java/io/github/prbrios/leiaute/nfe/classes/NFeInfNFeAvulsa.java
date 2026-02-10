@@ -19,66 +19,69 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("avulsa")
-@Root(name = "avulsa")
+@XmlRootElement(name = "avulsa")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeAvulsa extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cnpj")
-    @Element(name = "CNPJ", required = false)
+    @XmlElement(name = "CNPJ")
     private String CNPJ;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xorgao")
-    @Element(name = "xOrgao", required = false)
+    @XmlElement(name = "xOrgao")
     private String xOrgao;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("matr")
-    @Element(name = "matr", required = false)
+    @XmlElement(name = "matr")
     private String matr;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xagente")
-    @Element(name = "xAgente", required = false)
+    @XmlElement(name = "xAgente")
     private String xAgente;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("fone")
-    @Element(name = "fone", required = false)
+    @XmlElement(name = "fone")
     private String fone;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("uf")
-    @Element(name = "UF", required = false)
+    @XmlElement(name = "UF")
     private String UF;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ndar")
-    @Element(name = "nDAR", required = false)
+    @XmlElement(name = "nDAR")
     private String nDAR;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("demi")
-    @Element(name = "dEmi", required = false)
+    @XmlElement(name = "dEmi")
     private String dEmi;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vdar")
-    @Element(name = "vDAR", required = false)
+    @XmlElement(name = "vDAR")
     private String vDAR;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("repemi")
-    @Element(name = "repEmi", required = false)
+    @XmlElement(name = "repEmi")
     private String repEmi;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("dpag")
-    @Element(name = "dPag", required = false)
+    @XmlElement(name = "dPag")
     private String dPag;
 
     public NFeInfNFeAvulsa() {}

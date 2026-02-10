@@ -15,35 +15,34 @@
  */
 package io.github.prbrios.leiaute.nfe.classes;
 
-import io.github.prbrios.leiaute.nfe.classes.NFe;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
 import io.github.prbrios.leiaute.nfe.classes.retorno.RetEnviNFeProtNFe;
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Namespace;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.*;
 
 @JsonRootName("nfeproc")
-@Root(name = "nfeProc")
-@Namespace(reference = "http://www.portalfiscal.inf.br/nfe")
+@XmlRootElement(
+        name = "nfeProc",
+        namespace = "http://www.portalfiscal.inf.br/nfe"
+)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeProc extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("versao")
-    @Attribute(name = "versao", required = false)
+    @XmlAttribute(name = "versao")
     private String versao;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("nfe")
-    @Element(name = "NFe", required = false)
+    @XmlElement(name = "NFe")
     private NFe NFe;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("protnfe")
-    @Element(name = "protNFe", required = false)
+    @XmlElement(name = "protNFe")
     private RetEnviNFeProtNFe protNFe;
 
     public NFeProc() {}

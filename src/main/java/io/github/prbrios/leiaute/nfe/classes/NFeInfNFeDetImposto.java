@@ -19,61 +19,64 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("imposto")
-@Root(name = "imposto")
+@XmlRootElement(name = "imposto")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetImposto extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vtottrib")
-    @Element(name = "vTotTrib", required = false)
+    @XmlElement(name = "vTotTrib")
     private String vTotTrib;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("icms")
-    @Element(name = "ICMS", required = false)
+    @XmlElement(name = "ICMS")
     private NFeInfNFeDetImpostoICMS ICMS;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ipi")
-    @Element(name = "IPI", required = false)
+    @XmlElement(name = "IPI")
     private NFeInfNFeDetImpostoIPI IPI;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ii")
-    @Element(name = "II", required = false)
+    @XmlElement(name = "II")
     private NFeInfNFeDetImpostoII II;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("issqn")
-    @Element(name = "ISSQN", required = false)
+    @XmlElement(name = "ISSQN")
     private NFeInfNFeDetImpostoISSQN ISSQN;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("pis")
-    @Element(name = "PIS", required = false)
+    @XmlElement(name = "PIS")
     private NFeInfNFeDetImpostoPIS PIS;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("pisst")
-    @Element(name = "PISST", required = false)
+    @XmlElement(name = "PISST")
     private NFeInfNFeDetImpostoPISST PISST;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cofins")
-    @Element(name = "COFINS", required = false)
+    @XmlElement(name = "COFINS")
     private NFeInfNFeDetImpostoCOFINS COFINS;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cofinsst")
-    @Element(name = "COFINSST", required = false)
+    @XmlElement(name = "COFINSST")
     private NFeInfNFeDetImpostoCOFINSST COFINSST;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("icmsufdest")
-    @Element(name = "ICMSUFDest", required = false)
+    @XmlElement(name = "ICMSUFDest")
     private NFeInfNFeDetImpostoICMSUFDest ICMSUFDest;
 
     public NFeInfNFeDetImposto() {}

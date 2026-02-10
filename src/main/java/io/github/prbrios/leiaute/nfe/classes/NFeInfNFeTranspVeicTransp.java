@@ -15,31 +15,33 @@
  */
 package io.github.prbrios.leiaute.nfe.classes;
 
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("veictransp")
-@Root(name = "veicTransp")
+@XmlRootElement(name = "veicTransp")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeTranspVeicTransp extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("placa")
-    @Element(name = "placa", required = false)
+    @XmlElement(name = "placa")
     private String placa;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("uf")
-    @Element(name = "UF", required = false)
+    @XmlElement(name = "UF")
     private String UF;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("rntc")
-    @Element(name = "RNTC", required = false)
+    @XmlElement(name = "RNTC")
     private String RNTC;
 
     public NFeInfNFeTranspVeicTransp() {}

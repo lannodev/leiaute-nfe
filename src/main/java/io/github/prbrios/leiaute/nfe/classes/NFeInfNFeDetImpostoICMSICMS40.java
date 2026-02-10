@@ -19,31 +19,34 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("icms40")
-@Root(name = "ICMS40")
+@XmlRootElement(name = "ICMS40")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetImpostoICMSICMS40 extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("orig")
-    @Element(name = "orig", required = false)
+    @XmlElement(name = "orig")
     private String orig;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cst")
-    @Element(name = "CST", required = false)
+    @XmlElement(name = "CST")
     private String CST;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vicmsdeson")
-    @Element(name = "vICMSDeson", required = false)
+    @XmlElement(name = "vICMSDeson")
     private String vICMSDeson;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("motdesicms")
-    @Element(name = "motDesICMS", required = false)
+    @XmlElement(name = "motDesICMS")
     private String motDesICMS;
 
     public NFeInfNFeDetImpostoICMSICMS40() {}

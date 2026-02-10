@@ -16,44 +16,43 @@
 package io.github.prbrios.leiaute.nfe.classes.evento.envio;
 
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.*;
 
-@Root(name = "infEvento")
+@XmlRootElement(name = "infEvento")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class EnvEventoEventoInfEvento extends Base {
 
-    @Attribute(name = "Id", required = false)
+	@XmlAttribute(name = "Id")
     private String id;
 
-    @Element(name = "cOrgao", required = false)
+    @XmlElement(name = "cOrgao")
     private String cOrgao;
 
-    @Element(name = "tpAmb", required = false)
+    @XmlElement(name = "tpAmb")
     private String tpAmb;
 
-    @Element(name = "CNPJ", required = false)
+    @XmlElement(name = "CNPJ")
     private String CNPJ;
 
-    @Element(name = "CPF", required = false)
+    @XmlElement(name = "CPF")
     private String CPF;
 
-    @Element(name = "chNFe", required = false)
+    @XmlElement(name = "chNFe")
     private String chNFe;
 
-    @Element(name = "dhEvento", required = false)
+    @XmlElement(name = "dhEvento")
     private String dhEvento;
 
-    @Element(name = "tpEvento", required = false)
+    @XmlElement(name = "tpEvento")
     private String tpEvento;
 
-    @Element(name = "nSeqEvento", required = false)
+    @XmlElement(name = "nSeqEvento")
     private String nSeqEvento;
 
-    @Element(name = "verEvento", required = false)
+    @XmlElement(name = "verEvento")
     private String verEvento = "1.00";
 
-    @Element(name = "detEvento", required = false)
+    @XmlElement(name = "detEvento")
     private EnvEventoEventoInfEventoDetEvento detEvento;
 
     public EnvEventoEventoInfEvento() {}

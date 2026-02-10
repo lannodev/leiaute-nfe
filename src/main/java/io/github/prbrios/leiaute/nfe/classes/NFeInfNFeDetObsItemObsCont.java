@@ -19,22 +19,24 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("obscont")
-@Root(name = "obsCont")
+@XmlRootElement(name = "obsCont")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetObsItemObsCont extends Base {
 
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	@JsonProperty("xcampo")
-	@Element(name = "xCampo", required = false)
+	@XmlElement(name = "xCampo")
 	private String xCampo;
 
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	@JsonProperty("xtexto")
-	@Element(name = "xTexto", required = false)
+	@XmlElement(name = "xTexto")
 	private String xTexto;
 
 	public NFeInfNFeDetObsItemObsCont() {}

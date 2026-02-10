@@ -19,26 +19,29 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlElement;
 
 @JsonRootName("compra")
-@Root(name = "compra")
+@XmlRootElement(name = "compra")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeCompra extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xnemp")
-    @Element(name = "xNEmp", required = false)
+    @XmlElement(name = "xNEmp")
     private String xNEmp;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xped")
-    @Element(name = "xPed", required = false)
+    @XmlElement(name = "xPed")
     private String xPed;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xcont")
-    @Element(name = "xCont", required = false)
+    @XmlElement(name = "xCont")
     private String xCont;
 
     public NFeInfNFeCompra() {}

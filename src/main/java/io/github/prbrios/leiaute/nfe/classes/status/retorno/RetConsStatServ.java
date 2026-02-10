@@ -15,63 +15,66 @@
  */
 package io.github.prbrios.leiaute.nfe.classes.status.retorno;
 
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.prbrios.leiaute.nfe.Base;
+import jakarta.xml.bind.annotation.*;
 
+@XmlRootElement(
+		name = "retConsStatServ",
+		namespace = "http://www.portalfiscal.inf.br/nfe"
+)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class RetConsStatServ extends Base {
 	
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("versao")
-	@Attribute(name = "versao")
+	@XmlAttribute(name = "versao")
 	private String versao;
 	
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("tpAmb")
-	@Element(name = "tpAmb")
+	@XmlElement(name = "tpAmb")
 	private String tpAmb;
 	
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("verAplic")
-	@Element(name = "verAplic")
+	@XmlElement(name = "verAplic")
 	private String verAplic;
 	
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cStat")
-	@Element(name = "cStat")
+	@XmlElement(name = "cStat")
 	private String cStat;
 	
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xMotivo")
-	@Element(name = "xMotivo")
+	@XmlElement(name = "xMotivo")
 	private String xMotivo;
 	
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cUF")
-	@Element(name = "cUF")
+	@XmlElement(name = "cUF")
 	private String cUF;
 	
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("dhRecbto")
-	@Element(name = "dhRecbto")
+	@XmlElement(name = "dhRecbto")
 	private String dhRecbto;
 	
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("dhRetorno")
-	@Element(name = "dhRetorno", required = false)
+	@XmlElement(name = "dhRetorno", required = false)
 	private String dhRetorno;
 	
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xObs")
-	@Element(name = "xObs", required = false)
+	@XmlElement(name = "xObs", required = false)
 	private String xObs;
 	
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("tMed")
-	@Element(name = "tMed", required = false)
+	@XmlElement(name = "tMed", required = false)
 	private String tMed;
 
 	public String getVersao() {

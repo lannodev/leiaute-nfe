@@ -19,55 +19,57 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @JsonRootName("transp")
-@Root(name = "transp")
+@XmlRootElement(name = "transp")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeTransp extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("modfrete")
-    @Element(name = "modFrete", required = false)
+    @XmlElement(name = "modFrete", required = false)
     private String modFrete;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("transporta")
-    @Element(name = "transporta", required = false)
+    @XmlElement(name = "transporta", required = false)
     private NFeInfNFeTranspTransporta transporta;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("rettransp")
-    @Element(name = "retTransp", required = false)
+    @XmlElement(name = "retTransp", required = false)
     private NFeInfNFeTranspRetTransp retTransp;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("veictransp")
-    @Element(name = "veicTransp", required = false)
+    @XmlElement(name = "veicTransp", required = false)
     private NFeInfNFeTranspVeicTransp veicTransp;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("reboque")
-    @ElementList(name = "reboque", required = false, inline = true)
+	@XmlElement(name = "vol")
     private List<NFeInfNFeTranspReboque> reboque = new ArrayList<NFeInfNFeTranspReboque>();
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vagao")
-    @Element(name = "vagao", required = false)
+    @XmlElement(name = "vagao", required = false)
     private String vagao;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("balsa")
-    @Element(name = "balsa", required = false)
+    @XmlElement(name = "balsa", required = false)
     private String balsa;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vol")
-    @ElementList(name = "vol", required = false, inline = true)
+	@XmlElement(name = "vol")
     private List<NFeInfNFeTranspVol> vol = new ArrayList<NFeInfNFeTranspVol>();
 
     public NFeInfNFeTransp() {}

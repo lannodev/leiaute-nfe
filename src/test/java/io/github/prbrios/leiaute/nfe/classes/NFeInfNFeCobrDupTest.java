@@ -16,10 +16,13 @@
 package io.github.prbrios.leiaute.nfe.classes;
 
 
-import io.github.prbrios.leiaute.nfe.classes.NFeInfNFeCobrDup;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
 import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.core.Persister;
+
+import java.io.StringReader;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class NFeInfNFeCobrDupTest {
 
@@ -37,8 +40,9 @@ public class NFeInfNFeCobrDupTest {
 
     @Test
     public void test2() throws Exception {
-        Persister persister = new Persister();
-        NFeInfNFeCobrDup obj = persister.read(NFeInfNFeCobrDup.class, XML);
+        JAXBContext context = JAXBContext.newInstance(NFeInfNFeCobrDup.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        NFeInfNFeCobrDup obj =(NFeInfNFeCobrDup) unmarshaller.unmarshal(new StringReader(XML));
 
         assertEquals("0", obj.getnDup());
         assertEquals("1", obj.getdVenc());

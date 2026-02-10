@@ -19,91 +19,94 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("issqn")
-@Root(name = "ISSQN")
+@XmlRootElement(name = "ISSQN")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetImpostoISSQN extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vbc")
-    @Element(name = "vBC", required = false)
+    @XmlElement(name = "vBC")
     private String vBC;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("valiq")
-    @Element(name = "vAliq", required = false)
+    @XmlElement(name = "vAliq")
     private String vAliq;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vissqn")
-    @Element(name = "vISSQN", required = false)
+    @XmlElement(name = "vISSQN")
     private String vISSQN;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cmunfg")
-    @Element(name = "cMunFG", required = false)
+    @XmlElement(name = "cMunFG")
     private String cMunFG;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("clistserv")
-    @Element(name = "cListServ", required = false)
+    @XmlElement(name = "cListServ")
     private String cListServ;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vdeducao")
-    @Element(name = "vDeducao", required = false)
+    @XmlElement(name = "vDeducao")
     private String vDeducao;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("voutro")
-    @Element(name = "vOutro", required = false)
+    @XmlElement(name = "vOutro")
     private String vOutro;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vdescincond")
-    @Element(name = "vDescIncond", required = false)
+    @XmlElement(name = "vDescIncond")
     private String vDescIncond;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vdesccond")
-    @Element(name = "vDescCond", required = false)
+    @XmlElement(name = "vDescCond")
     private String vDescCond;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vissret")
-    @Element(name = "vISSRet", required = false)
+    @XmlElement(name = "vISSRet")
     private String vISSRet;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("indiss")
-    @Element(name = "indISS", required = false)
+    @XmlElement(name = "indISS")
     private String indISS;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cservico")
-    @Element(name = "cServico", required = false)
+    @XmlElement(name = "cServico")
     private String cServico;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cmun")
-    @Element(name = "cMun", required = false)
+    @XmlElement(name = "cMun")
     private String cMun;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cpais")
-    @Element(name = "cPais", required = false)
+    @XmlElement(name = "cPais")
     private String cPais;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("nprocesso")
-    @Element(name = "nProcesso", required = false)
+    @XmlElement(name = "nProcesso")
     private String nProcesso;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("indincentivo")
-    @Element(name = "indIncentivo", required = false)
+    @XmlElement(name = "indIncentivo")
     private String indIncentivo;
 
     public NFeInfNFeDetImpostoISSQN() {}

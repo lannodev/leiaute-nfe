@@ -19,126 +19,129 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("icmstot")
-@Root(name = "ICMSTot")
+@XmlRootElement(name = "ICMSTot")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeTotalICMSTot extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vbc")
-    @Element(name = "vBC", required = false)
+    @XmlElement(name = "vBC")
     private String vBC;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vicms")
-    @Element(name = "vICMS", required = false)
+    @XmlElement(name = "vICMS")
     private String vICMS;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vicmsdeson")
-    @Element(name = "vICMSDeson", required = false)
+    @XmlElement(name = "vICMSDeson")
     private String vICMSDeson;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vfcpufdest")
-    @Element(name = "vFCPUFDest", required = false)
+    @XmlElement(name = "vFCPUFDest")
     private String vFCPUFDest;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vicmsufdest")
-    @Element(name = "vICMSUFDest", required = false)
+    @XmlElement(name = "vICMSUFDest")
     private String vICMSUFDest;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vicmsufremet")
-    @Element(name = "vICMSUFRemet", required = false)
+    @XmlElement(name = "vICMSUFRemet")
     private String vICMSUFRemet;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vfcp")
-    @Element(name = "vFCP", required = false)
+    @XmlElement(name = "vFCP")
     private String vFCP;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vbcst")
-    @Element(name = "vBCST", required = false)
+    @XmlElement(name = "vBCST")
     private String vBCST;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vst")
-    @Element(name = "vST", required = false)
+    @XmlElement(name = "vST")
     private String vST;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vfcpst")
-    @Element(name = "vFCPST", required = false)
+    @XmlElement(name = "vFCPST")
     private String vFCPST;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vfcpstret")
-    @Element(name = "vFCPSTRet", required = false)
+    @XmlElement(name = "vFCPSTRet")
     private String vFCPSTRet;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vprod")
-    @Element(name = "vProd", required = false)
+    @XmlElement(name = "vProd")
     private String vProd;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vfrete")
-    @Element(name = "vFrete", required = false)
+    @XmlElement(name = "vFrete")
     private String vFrete;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vseg")
-    @Element(name = "vSeg", required = false)
+    @XmlElement(name = "vSeg")
     private String vSeg;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vdesc")
-    @Element(name = "vDesc", required = false)
+    @XmlElement(name = "vDesc")
     private String vDesc;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vii")
-    @Element(name = "vII", required = false)
+    @XmlElement(name = "vII")
     private String vII;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vipi")
-    @Element(name = "vIPI", required = false)
+    @XmlElement(name = "vIPI")
     private String vIPI;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vipidevol")
-    @Element(name = "vIPIDevol", required = false)
+    @XmlElement(name = "vIPIDevol")
     private String vIPIDevol;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vpis")
-    @Element(name = "vPIS", required = false)
+    @XmlElement(name = "vPIS")
     private String vPIS;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vcofins")
-    @Element(name = "vCOFINS", required = false)
+    @XmlElement(name = "vCOFINS")
     private String vCOFINS;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("voutro")
-    @Element(name = "vOutro", required = false)
+    @XmlElement(name = "vOutro")
     private String vOutro;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vnf")
-    @Element(name = "vNF", required = false)
+    @XmlElement(name = "vNF")
     private String vNF;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vtottrib")
-    @Element(name = "vTotTrib", required = false)
+    @XmlElement(name = "vTotTrib")
     private String vTotTrib;
 
     public NFeInfNFeTotalICMSTot() {}

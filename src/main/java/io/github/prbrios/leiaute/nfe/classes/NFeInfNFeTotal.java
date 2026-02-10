@@ -19,26 +19,29 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("total")
-@Root(name = "total")
+@XmlRootElement(name = "total")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeTotal extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("icmstot")
-    @Element(name = "ICMSTot", required = false)
+    @XmlElement(name = "ICMSTot")
     private NFeInfNFeTotalICMSTot ICMSTot;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("issqntot")
-    @Element(name = "ISSQNtot", required = false)
+    @XmlElement(name = "ISSQNtot")
     private NFeInfNFeTotalISSQNtot ISSQNtot;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("rettrib")
-    @Element(name = "retTrib", required = false)
+    @XmlElement(name = "retTrib")
     private NFeInfNFeTotalRetTrib retTrib;
 
     public NFeInfNFeTotal() {}

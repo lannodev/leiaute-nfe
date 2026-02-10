@@ -15,20 +15,23 @@
  */
 package io.github.prbrios.leiaute.nfe.assinatura;
 
-import org.simpleframework.xml.Element;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class SignedInfo {
-	
+
     @SuppressWarnings("unused")
 	private static final long serialVersionUID = -5878065134465400530L;
 
-    @Element(name = "CanonicalizationMethod", required = false)
+    @XmlElement(name = "CanonicalizationMethod")
     private CanonicalizationMethod canonicalizationMethod;
 
-    @Element(name = "SignatureMethod", required = false)
+    @XmlElement(name = "SignatureMethod")
     private SignatureMethod signatureMethod;
 
-    @Element(name = "Reference", required = false)
+    @XmlElement(name = "Reference")
     private Reference reference;
 
     public CanonicalizationMethod getCanonicalizationMethod() {

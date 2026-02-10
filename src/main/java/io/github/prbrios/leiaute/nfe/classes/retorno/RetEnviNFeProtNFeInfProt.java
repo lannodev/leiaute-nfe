@@ -15,72 +15,70 @@
  */
 package io.github.prbrios.leiaute.nfe.classes.retorno;
 
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
+import jakarta.xml.bind.annotation.*;
 
 @JsonRootName("infprot")
-@Root(name = "infProt")
+@XmlRootElement(name = "infProt")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class RetEnviNFeProtNFeInfProt extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("id")
-    @Attribute(name = "Id", required = false)
+    @XmlAttribute(name = "Id")
     private String id;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("tpamb")
-    @Element(name = "tpAmb", required = false)
+    @XmlElement(name = "tpAmb")
     private String tpAmb;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("veraplic")
-    @Element(name = "verAplic", required = false)
+    @XmlElement(name = "verAplic")
     private String verAplic;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("chnfe")
-    @Element(name = "chNFe", required = false)
+    @XmlElement(name = "chNFe")
     private String chNFe;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("dhrecbto")
-    @Element(name = "dhRecbto", required = false)
+    @XmlElement(name = "dhRecbto")
     private String dhRecbto;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("nprot")
-    @Element(name = "nProt", required = false)
+    @XmlElement(name = "nProt")
     private String nProt;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("digval")
-    @Element(name = "digVal", required = false)
+    @XmlElement(name = "digVal")
     private String digVal;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cstat")
-    @Element(name = "cStat", required = false)
+    @XmlElement(name = "cStat")
     private String cStat;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xmotivo")
-    @Element(name = "xMotivo", required = false)
+    @XmlElement(name = "xMotivo")
     private String xMotivo;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cmsg")
-    @Element(name = "cMsg", required = false)
+    @XmlElement(name = "cMsg")
     private String cMsg;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xmsg")
-    @Element(name = "xMsg", required = false)
+    @XmlElement(name = "xMsg")
     private String xMsg;
 
     public RetEnviNFeProtNFeInfProt() {}

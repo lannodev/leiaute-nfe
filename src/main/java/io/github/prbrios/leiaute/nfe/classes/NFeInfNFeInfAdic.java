@@ -19,40 +19,42 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlElement;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @JsonRootName("infadic")
-@Root(name = "infAdic")
+@XmlRootElement(name = "infAdic")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeInfAdic extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("infadfisco")
-    @Element(name = "infAdFisco", required = false)
+    @XmlElement(name = "infAdFisco")
     private String infAdFisco;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("infcpl")
-    @Element(name = "infCpl", required = false)
+    @XmlElement(name = "infCpl")
     private String infCpl;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("obscont")
-    @ElementList(name = "obsCont", required = false, inline = true)
+    @XmlElement(name = "obsCont")
     private List<NFeInfNFeInfAdicObsCont> obsCont = new ArrayList<NFeInfNFeInfAdicObsCont>();
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("obsfisco")
-    @ElementList(name = "obsFisco", required = false, inline = true)
+    @XmlElement(name = "obsFisco")
     private List<NFeInfNFeInfAdicObsFisco> obsFisco = new ArrayList<NFeInfNFeInfAdicObsFisco>();
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("procref")
-    @ElementList(name = "procRef", required = false, inline = true)
+    @XmlElement(name = "procRef")
     private List<NFeInfNFeInfAdicProcRef> procRef = new ArrayList<NFeInfNFeInfAdicProcRef>();
 
     public NFeInfNFeInfAdic() {}

@@ -19,21 +19,24 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("fordia")
-@Root(name = "forDia")
+@XmlRootElement(name = "forDia")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeCanaForDia extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("qtde")
-    @Element(name = "qtde", required = false)
+    @XmlElement(name = "qtde")
     private String qtde;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("dia")
-    @Element(name = "dia", required = false)
+    @XmlElement(name = "dia")
     private String dia;
 
     public NFeInfNFeCanaForDia() {}

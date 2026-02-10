@@ -16,10 +16,13 @@
 package io.github.prbrios.leiaute.nfe.classes;
 
 
-import io.github.prbrios.leiaute.nfe.classes.NFeInfNFeRetirada;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
 import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.core.Persister;
+
+import java.io.StringReader;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class NFeInfNFeRetiradaTest {
 
@@ -50,8 +53,9 @@ public class NFeInfNFeRetiradaTest {
 
     @Test
     public void test2() throws Exception {
-        Persister persister = new Persister();
-        NFeInfNFeRetirada obj = persister.read(NFeInfNFeRetirada.class, XML);
+        JAXBContext context = JAXBContext.newInstance(NFeInfNFeRetirada.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        NFeInfNFeRetirada obj =(NFeInfNFeRetirada) unmarshaller.unmarshal(new StringReader(XML));
 
         assertEquals("0", obj.getCNPJ());
         assertEquals("1", obj.getCPF());

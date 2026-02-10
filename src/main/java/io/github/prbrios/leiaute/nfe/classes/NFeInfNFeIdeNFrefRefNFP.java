@@ -19,51 +19,54 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("refnfp")
-@Root(name = "refNFP")
+@XmlRootElement(name = "refNFP")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeIdeNFrefRefNFP extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cuf")
-    @Element(name = "cUF", required = false)
+    @XmlElement(name = "cUF")
     private String cUF;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("aamm")
-    @Element(name = "AAMM", required = false)
+    @XmlElement(name = "AAMM")
     private String AAMM;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cnp")
-    @Element(name = "CNPJ", required = false)
+    @XmlElement(name = "CNPJ")
     private String CNPJ;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cpf")
-    @Element(name = "CPF", required = false)
+    @XmlElement(name = "CPF")
     private String CPF;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ie")
-    @Element(name = "IE", required = false)
+    @XmlElement(name = "IE")
     private String IE;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("mod")
-    @Element(name = "mod", required = false)
+    @XmlElement(name = "mod")
     private String mod;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("serie")
-    @Element(name = "serie", required = false)
+    @XmlElement(name = "serie")
     private String serie;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("nnf")
-    @Element(name = "nNF", required = false)
+    @XmlElement(name = "nNF")
     private String nNF;
 
     public NFeInfNFeIdeNFrefRefNFP() {}

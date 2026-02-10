@@ -15,44 +15,39 @@
  */
 package io.github.prbrios.leiaute.nfe.classes.envio;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Namespace;
-import org.simpleframework.xml.Root;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
 import io.github.prbrios.leiaute.nfe.classes.NFe;
+import jakarta.xml.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @JsonRootName("enviNFe")
-@Root(name = "enviNFe")
-@Namespace(reference = "http://www.portalfiscal.inf.br/nfe")
+@XmlRootElement(name = "enviNFe", namespace = "http://www.portalfiscal.inf.br/nfe")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class EnviNFe extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("versao")
-    @Attribute(name = "versao", required = false)
+	@XmlAttribute(name = "versao", required = false)
     private String versao;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("idlote")
-    @Element(name = "idLote", required = false)
+	@XmlElement(name = "idLote", required = false)
     private String idLote;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("indsinc")
-    @Element(name = "indSinc", required = false)
+	@XmlElement(name = "indSinc", required = false)
     private String indSinc;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("nfe")
-    @ElementList(name = "NFe", required = false, inline = true)
+	@XmlElement(name = "NFe")
     private List<NFe> NFe = new ArrayList<NFe>();
 
 	public String getVersao() {

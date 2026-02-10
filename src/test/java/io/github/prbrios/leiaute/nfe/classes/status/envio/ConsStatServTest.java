@@ -16,10 +16,14 @@
 package io.github.prbrios.leiaute.nfe.classes.status.envio;
 
 
-import io.github.prbrios.leiaute.nfe.classes.status.envio.ConsStatServ;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
 import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.core.Persister;
+
+import java.io.StringReader;
+
+import static io.github.prbrios.leiaute.nfe.utils.XmlTestUtils.normalizeXml;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ConsStatServTest {
 
@@ -33,13 +37,14 @@ public class ConsStatServTest {
         obj.setcUF("2");
         obj.setxServ("3");
 
-        assertEquals(XML, obj.toString());
+        assertEquals(normalizeXml(XML), normalizeXml(obj.toString()));
     }
 
     @Test
     public void test2() throws Exception {
-        Persister persister = new Persister();
-        ConsStatServ obj = persister.read(ConsStatServ.class, XML);
+        JAXBContext context = JAXBContext.newInstance(ConsStatServ.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        ConsStatServ obj =(ConsStatServ) unmarshaller.unmarshal(new StringReader(XML));
 
         assertEquals("0", obj.getVersao());
         assertEquals("1", obj.getTpAmb());

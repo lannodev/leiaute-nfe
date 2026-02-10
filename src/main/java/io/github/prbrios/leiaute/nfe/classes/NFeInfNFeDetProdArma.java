@@ -19,31 +19,34 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("arma")
-@Root(name = "arma")
+@XmlRootElement(name = "arma")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetProdArma extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("tparma")
-    @Element(name = "tpArma", required = false)
+    @XmlElement(name = "tpArma")
     private String tpArma;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("nserie")
-    @Element(name = "nSerie", required = false)
+    @XmlElement(name = "nSerie")
     private String nSerie;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ncano")
-    @Element(name = "nCano", required = false)
+    @XmlElement(name = "nCano")
     private String nCano;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("descr")
-    @Element(name = "descr", required = false)
+    @XmlElement(name = "descr")
     private String descr;
 
     public NFeInfNFeDetProdArma() {}

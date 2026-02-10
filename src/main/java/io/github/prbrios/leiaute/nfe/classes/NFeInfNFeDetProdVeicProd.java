@@ -19,131 +19,134 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("veicprod")
-@Root(name = "veicProd")
+@XmlRootElement(name = "veicProd")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetProdVeicProd extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("tpop")
-    @Element(name = "tpOp", required = false)
+    @XmlElement(name = "tpOp")
     private String tpOp;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("chassi")
-    @Element(name = "chassi", required = false)
+    @XmlElement(name = "chassi")
     private String chassi;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ccor")
-    @Element(name = "cCor", required = false)
+    @XmlElement(name = "cCor")
     private String cCor;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xcor")
-    @Element(name = "xCor", required = false)
+    @XmlElement(name = "xCor")
     private String xCor;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("pot")
-    @Element(name = "pot", required = false)
+    @XmlElement(name = "pot")
     private String pot;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cilin")
-    @Element(name = "cilin", required = false)
+    @XmlElement(name = "cilin")
     private String cilin;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("pesol")
-    @Element(name = "pesoL", required = false)
+    @XmlElement(name = "pesoL")
     private String pesoL;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("pesob")
-    @Element(name = "pesoB", required = false)
+    @XmlElement(name = "pesoB")
     private String pesoB;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("nserie")
-    @Element(name = "nSerie", required = false)
+    @XmlElement(name = "nSerie")
     private String nSerie;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("tpcomb")
-    @Element(name = "tpComb", required = false)
+    @XmlElement(name = "tpComb")
     private String tpComb;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("nmotor")
-    @Element(name = "nMotor", required = false)
+    @XmlElement(name = "nMotor")
     private String nMotor;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cmt")
-    @Element(name = "CMT", required = false)
+    @XmlElement(name = "CMT")
     private String CMT;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("dist")
-    @Element(name = "dist", required = false)
+    @XmlElement(name = "dist")
     private String dist;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("anomod")
-    @Element(name = "anoMod", required = false)
+    @XmlElement(name = "anoMod")
     private String anoMod;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("anofab")
-    @Element(name = "anoFab", required = false)
+    @XmlElement(name = "anoFab")
     private String anoFab;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("tppint")
-    @Element(name = "tpPint", required = false)
+    @XmlElement(name = "tpPint")
     private String tpPint;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("tpveic")
-    @Element(name = "tpVeic", required = false)
+    @XmlElement(name = "tpVeic")
     private String tpVeic;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("espveic")
-    @Element(name = "espVeic", required = false)
+    @XmlElement(name = "espVeic")
     private String espVeic;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vin")
-    @Element(name = "VIN", required = false)
+    @XmlElement(name = "VIN")
     private String VIN;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("condveic")
-    @Element(name = "condVeic", required = false)
+    @XmlElement(name = "condVeic")
     private String condVeic;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cmod")
-    @Element(name = "cMod", required = false)
+    @XmlElement(name = "cMod")
     private String cMod;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ccordenatran")
-    @Element(name = "cCorDENATRAN", required = false)
+    @XmlElement(name = "cCorDENATRAN")
     private String cCorDENATRAN;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("lota")
-    @Element(name = "lota", required = false)
+    @XmlElement(name = "lota")
     private String lota;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("tprest")
-    @Element(name = "tpRest", required = false)
+    @XmlElement(name = "tpRest")
     private String tpRest;
 
     public NFeInfNFeDetProdVeicProd() {}

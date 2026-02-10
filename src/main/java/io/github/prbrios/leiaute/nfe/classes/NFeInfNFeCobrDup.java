@@ -19,26 +19,29 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("dup")
-@Root(name = "dup")
+@XmlRootElement(name = "dup")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeCobrDup extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ndup")
-    @Element(name = "nDup", required = false)
+    @XmlElement(name = "nDup")
     private String nDup;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("dvenc")
-    @Element(name = "dVenc", required = false)
+    @XmlElement(name = "dVenc")
     private String dVenc;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vdup")
-    @Element(name = "vDup", required = false)
+    @XmlElement(name = "vDup")
     private String vDup;
 
     public NFeInfNFeCobrDup() {}

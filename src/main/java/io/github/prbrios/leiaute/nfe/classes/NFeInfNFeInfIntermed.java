@@ -15,26 +15,28 @@
  */
 package io.github.prbrios.leiaute.nfe.classes;
 
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("infintermed")
-@Root(name = "infIntermed")
+@XmlRootElement(name = "infIntermed")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeInfIntermed extends Base {
 	
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cnpj")
-    @Element(name="CNPJ", required = false)
+    @XmlElement(name="CNPJ")
 	private String CNPJ;
 	
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("idcadinttran")
-    @Element(name="idCadIntTran", required = false)
+    @XmlElement(name="idCadIntTran")
 	private String idCadIntTran;
 
 	public String getCNPJ() {

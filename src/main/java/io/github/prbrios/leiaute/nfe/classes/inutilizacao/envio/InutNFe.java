@@ -16,24 +16,20 @@
 package io.github.prbrios.leiaute.nfe.classes.inutilizacao.envio;
 
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Namespace;
-import org.simpleframework.xml.Root;
-
 import io.github.prbrios.leiaute.nfe.assinatura.Signature;
+import jakarta.xml.bind.annotation.*;
 
-@Root(name = "inutNFe")
-@Namespace(reference = "http://www.portalfiscal.inf.br/nfe")
+@XmlRootElement(name = "inutNFe", namespace = "http://www.portalfiscal.inf.br/nfe")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class InutNFe extends Base {
 
-    @Attribute(name = "versao", required = false)
+	@XmlAttribute(name = "versao")
     private String versao;
 
-    @Element(name = "infInut", required = false)
+    @XmlElement(name = "infInut")
     private InutNFeInfInut infInut;
 
-    @Element(name = "Signature", required = false)
+    @XmlElement(name = "Signature")
     private Signature signature;
 
 	public String getVersao() {

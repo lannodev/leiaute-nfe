@@ -19,51 +19,54 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("icms00")
-@Root(name = "ICMS00")
+@XmlRootElement(name = "ICMS00")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetImpostoICMSICMS00 extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("orig")
-    @Element(name = "orig", required = false)
+    @XmlElement(name = "orig")
     private String orig;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cst")
-    @Element(name = "CST", required = false)
+    @XmlElement(name = "CST")
     private String CST;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("modbc")
-    @Element(name = "modBC", required = false)
+    @XmlElement(name = "modBC")
     private String modBC;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vbc")
-    @Element(name = "vBC", required = false)
+    @XmlElement(name = "vBC")
     private String vBC;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("picms")
-    @Element(name = "pICMS", required = false)
+    @XmlElement(name = "pICMS")
     private String pICMS;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vicms")
-    @Element(name = "vICMS", required = false)
+    @XmlElement(name = "vICMS")
     private String vICMS;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("pfcp")
-    @Element(name = "pFCP", required = false)
+    @XmlElement(name = "pFCP")
     private String pFCP;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vfcp")
-    @Element(name = "vFCP", required = false)
+    @XmlElement(name = "vFCP")
     private String vFCP;
 
     public NFeInfNFeDetImpostoICMSICMS00() {}

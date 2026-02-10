@@ -15,13 +15,13 @@
  */
 package io.github.prbrios.leiaute.nfe.classes;
 
-import io.github.prbrios.leiaute.nfe.classes.NFeInfNFeDetProdCombCIDE;
-import java.util.ArrayList;
-import java.util.List;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
+import org.junit.jupiter.api.Test;
+
+import java.io.StringReader;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.core.Persister;
 
 public class NFeInfNFeDetProdCombCIDETest {
 
@@ -40,8 +40,9 @@ public class NFeInfNFeDetProdCombCIDETest {
 
     @Test
     public void test2() throws Exception {
-        Persister persister = new Persister();
-        NFeInfNFeDetProdCombCIDE obj = persister.read(NFeInfNFeDetProdCombCIDE.class, XML);
+        JAXBContext context = JAXBContext.newInstance(NFeInfNFeDetProdCombCIDE.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        NFeInfNFeDetProdCombCIDE obj =(NFeInfNFeDetProdCombCIDE) unmarshaller.unmarshal(new StringReader(XML));
 
         assertEquals("0", obj.getqBCProd());
         assertEquals("1", obj.getvAliqProd());

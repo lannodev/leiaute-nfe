@@ -19,41 +19,44 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("pisoutr")
-@Root(name = "PISOutr")
+@XmlRootElement(name = "PISOutr")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetImpostoPISPISOutr extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cst")
-    @Element(name = "CST", required = false)
+    @XmlElement(name = "CST", required = false)
     private String CST;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vbc")
-    @Element(name = "vBC", required = false)
+    @XmlElement(name = "vBC", required = false)
     private String vBC;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ppis")
-    @Element(name = "pPIS", required = false)
+    @XmlElement(name = "pPIS", required = false)
     private String pPIS;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("qbcprod")
-    @Element(name = "qBCProd", required = false)
+    @XmlElement(name = "qBCProd", required = false)
     private String qBCProd;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("valiqprod")
-    @Element(name = "vAliqProd", required = false)
+    @XmlElement(name = "vAliqProd", required = false)
     private String vAliqProd;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vpis")
-    @Element(name = "vPIS", required = false)
+    @XmlElement(name = "vPIS", required = false)
     private String vPIS;
 
     public NFeInfNFeDetImpostoPISPISOutr() {}

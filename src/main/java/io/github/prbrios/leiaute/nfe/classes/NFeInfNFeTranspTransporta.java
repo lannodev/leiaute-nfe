@@ -19,46 +19,49 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("transporta")
-@Root(name = "transporta")
+@XmlRootElement(name = "transporta")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeTranspTransporta extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cnpj")
-    @Element(name = "CNPJ", required = false)
+    @XmlElement(name = "CNPJ")
     private String CNPJ;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cpf")
-    @Element(name = "CPF", required = false)
+    @XmlElement(name = "CPF")
     private String CPF;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xnome")
-    @Element(name = "xNome", required = false)
+    @XmlElement(name = "xNome")
     private String xNome;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ie")
-    @Element(name = "IE", required = false)
+    @XmlElement(name = "IE")
     private String IE;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xender")
-    @Element(name = "xEnder", required = false)
+    @XmlElement(name = "xEnder")
     private String xEnder;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xmun")
-    @Element(name = "xMun", required = false)
+    @XmlElement(name = "xMun")
     private String xMun;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("uf")
-    @Element(name = "UF", required = false)
+    @XmlElement(name = "UF")
     private String UF;
 
     public NFeInfNFeTranspTransporta() {}

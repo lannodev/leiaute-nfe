@@ -15,10 +15,14 @@
  */
 package io.github.prbrios.leiaute.nfe.classes.evento.envio;
 
-import io.github.prbrios.leiaute.nfe.classes.evento.envio.EnvEventoEvento;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
 import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.core.Persister;
+
+import java.io.StringReader;
+
+import static io.github.prbrios.leiaute.nfe.utils.XmlTestUtils.normalizeXml;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class EnvEventoEventoTest {
 
@@ -28,13 +32,14 @@ public class EnvEventoEventoTest {
 	public void test1() {
 		EnvEventoEvento obj = new EnvEventoEvento();
         obj.setVersao("0");
-		assertEquals(XML, obj.toString());
+		assertEquals(normalizeXml(XML), normalizeXml(obj.toString()));
 	}
 
 	@Test
 	public void test2() throws Exception {
-		Persister persister = new Persister();
-		EnvEventoEvento obj = persister.read(EnvEventoEvento.class, XML);
+		JAXBContext context = JAXBContext.newInstance(EnvEventoEvento.class);
+		Unmarshaller unmarshaller = context.createUnmarshaller();
+		EnvEventoEvento obj =(EnvEventoEvento) unmarshaller.unmarshal(new StringReader(XML));
 
 		assertEquals("0", obj.getVersao());
 	}

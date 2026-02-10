@@ -17,22 +17,19 @@ package io.github.prbrios.leiaute.nfe.classes.evento.envio;
 
 import io.github.prbrios.leiaute.nfe.Base;
 import io.github.prbrios.leiaute.nfe.assinatura.Signature;
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Namespace;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.*;
 
-@Root(name = "evento")
-@Namespace(reference = "http://www.portalfiscal.inf.br/nfe")
+@XmlRootElement(name = "evento", namespace = "http://www.portalfiscal.inf.br/nfe")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class EnvEventoEvento extends Base {
 
-    @Attribute(name = "versao", required = false)
+	@XmlAttribute(name = "versao")
     private String versao = "1.00";
 
-    @Element(name = "infEvento", required = false)
+    @XmlElement(name = "infEvento")
     private EnvEventoEventoInfEvento infEvento;
 
-    @Element(name = "Signature", required = false)
+    @XmlElement(name = "Signature")
     private Signature signature;
 
     public EnvEventoEvento() {}

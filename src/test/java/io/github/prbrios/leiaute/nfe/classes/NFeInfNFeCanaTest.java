@@ -15,12 +15,13 @@
  */
 package io.github.prbrios.leiaute.nfe.classes;
 
-import io.github.prbrios.leiaute.nfe.classes.NFeInfNFeCana;
-import java.util.ArrayList;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
+import org.junit.jupiter.api.Test;
+
+import java.io.StringReader;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.core.Persister;
 
 public class NFeInfNFeCanaTest {
 
@@ -43,8 +44,9 @@ public class NFeInfNFeCanaTest {
 
     @Test
     public void test2() throws Exception {
-        Persister persister = new Persister();
-        NFeInfNFeCana obj = persister.read(NFeInfNFeCana.class, XML);
+        JAXBContext context = JAXBContext.newInstance(NFeInfNFeCana.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        NFeInfNFeCana obj =(NFeInfNFeCana) unmarshaller.unmarshal(new StringReader(XML));
 
         assertEquals("0", obj.getSafra());
         assertEquals("1", obj.getRef());

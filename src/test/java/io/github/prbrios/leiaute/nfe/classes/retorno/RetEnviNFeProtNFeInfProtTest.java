@@ -15,10 +15,13 @@
  */
 package io.github.prbrios.leiaute.nfe.classes.retorno;
 
-import io.github.prbrios.leiaute.nfe.classes.retorno.RetEnviNFeProtNFeInfProt;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
 import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.core.Persister;
+
+import java.io.StringReader;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RetEnviNFeProtNFeInfProtTest {
 
@@ -44,8 +47,9 @@ public class RetEnviNFeProtNFeInfProtTest {
 
     @Test
     public void test2() throws Exception {
-        Persister persister = new Persister();
-        RetEnviNFeProtNFeInfProt obj = persister.read(RetEnviNFeProtNFeInfProt.class, XML);
+        JAXBContext context = JAXBContext.newInstance(RetEnviNFeProtNFeInfProt.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        RetEnviNFeProtNFeInfProt obj =(RetEnviNFeProtNFeInfProt) unmarshaller.unmarshal(new StringReader(XML));
 
         assertEquals("0", obj.getId());
         assertEquals("1", obj.getTpAmb());

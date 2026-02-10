@@ -19,36 +19,39 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("encerrante")
-@Root(name = "encerrante")
+@XmlRootElement(name = "encerrante")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetProdCombEncerrante extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("nbico")
-    @Element(name = "nBico", required = false)
+    @XmlElement(name = "nBico")
     private String nBico;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("nbomba")
-    @Element(name = "nBomba", required = false)
+    @XmlElement(name = "nBomba")
     private String nBomba;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ntanque")
-    @Element(name = "nTanque", required = false)
+    @XmlElement(name = "nTanque")
     private String nTanque;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vencini")
-    @Element(name = "vEncIni", required = false)
+    @XmlElement(name = "vEncIni")
     private String vEncIni;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vencfin")
-    @Element(name = "vEncFin", required = false)
+    @XmlElement(name = "vEncFin")
     private String vEncFin;
 
     public NFeInfNFeDetProdCombEncerrante() {}

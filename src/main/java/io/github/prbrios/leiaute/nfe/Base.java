@@ -15,22 +15,29 @@
  */
 package io.github.prbrios.leiaute.nfe;
 
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Marshaller;
+
 import java.io.Serializable;
 import java.io.StringWriter;
-import org.simpleframework.xml.core.Persister;
-import org.simpleframework.xml.stream.Format;
 
 public abstract class Base implements Serializable {
-     
+
     @Override
     public String toString() {
-        final Persister persister = new Persister(new Format(0));
-        try (StringWriter writer = new StringWriter()) {
-            persister.write(this, writer);
+        try {
+            JAXBContext context = JAXBContext.newInstance(this.getClass());
+            Marshaller marshaller = context.createMarshaller();
+
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, false);
+            marshaller.setProperty(Marshaller.JAXB_FRAGMENT, true);
+
+            StringWriter writer = new StringWriter();
+            marshaller.marshal(this, writer);
+
             return writer.toString();
-        } catch (final Exception e) {
+        } catch (Exception e) {
             throw new IllegalStateException(e.getMessage(), e);
         }
     }
-
 }

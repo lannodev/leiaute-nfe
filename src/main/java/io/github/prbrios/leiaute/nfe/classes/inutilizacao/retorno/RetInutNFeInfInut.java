@@ -17,53 +17,52 @@ package io.github.prbrios.leiaute.nfe.classes.inutilizacao.retorno;
 
 
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.*;
 
-@Root(name = "infInut")
+@XmlRootElement(name = "infInut")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class RetInutNFeInfInut extends Base {
 
-    @Attribute(name = "Id", required = false)
+    @XmlAttribute(name = "Id")
     private String id;
 
-    @Element(name = "tpAmb", required = false)
+    @XmlElement(name = "tpAmb")
     private String tpAmb;
 
-    @Element(name = "verAplic", required = false)
+    @XmlElement(name = "verAplic")
     private String verAplic;
 
-    @Element(name = "cStat", required = false)
+    @XmlElement(name = "cStat")
     private String cStat;
 
-    @Element(name = "xMotivo", required = false)
+    @XmlElement(name = "xMotivo")
     private String xMotivo;
 
-    @Element(name = "cUF", required = false)
+    @XmlElement(name = "cUF")
     private String cUF;
 
-    @Element(name = "ano", required = false)
+    @XmlElement(name = "ano")
     private String ano;
 
-    @Element(name = "CNPJ", required = false)
+    @XmlElement(name = "CNPJ")
     private String CNPJ;
 
-    @Element(name = "mod", required = false)
+    @XmlElement(name = "mod")
     private String mod;
 
-    @Element(name = "serie", required = false)
+    @XmlElement(name = "serie")
     private String serie;
 
-    @Element(name = "nNFIni", required = false)
+    @XmlElement(name = "nNFIni")
     private String nNFIni;
 
-    @Element(name = "nNFFin", required = false)
+    @XmlElement(name = "nNFFin")
     private String nNFFin;
 
-    @Element(name = "dhRecbto", required = false)
+    @XmlElement(name = "dhRecbto")
     private String dhRecbto;
 
-    @Element(name = "nProt", required = false)
+    @XmlElement(name = "nProt")
     private String nProt;
 
 	public String getId() {

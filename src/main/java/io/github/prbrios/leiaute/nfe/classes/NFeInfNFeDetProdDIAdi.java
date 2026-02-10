@@ -19,36 +19,39 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("adi")
-@Root(name = "adi")
+@XmlRootElement(name = "adi")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetProdDIAdi extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("nadicao")
-    @Element(name = "nAdicao", required = false)
+    @XmlElement(name = "nAdicao")
     private String nAdicao;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("nseqadic")
-    @Element(name = "nSeqAdic", required = false)
+    @XmlElement(name = "nSeqAdic")
     private String nSeqAdic;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cfabricante")
-    @Element(name = "cFabricante", required = false)
+    @XmlElement(name = "cFabricante")
     private String cFabricante;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vdescdi")
-    @Element(name = "vDescDI", required = false)
+    @XmlElement(name = "vDescDI")
     private String vDescDI;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ndraw")
-    @Element(name = "nDraw", required = false)
+    @XmlElement(name = "nDraw")
     private String nDraw;
 
     public NFeInfNFeDetProdDIAdi() {}

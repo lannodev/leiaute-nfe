@@ -19,21 +19,24 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("deduc")
-@Root(name = "deduc")
+@XmlRootElement(name = "deduc")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeCanaDeduc extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xded")
-    @Element(name = "xDed", required = false)
+    @XmlElement(name = "xDed")
     private String xDed;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vded")
-    @Element(name = "vDed", required = false)
+    @XmlElement(name = "vDed")
     private String vDed;
 
     public NFeInfNFeCanaDeduc() {}

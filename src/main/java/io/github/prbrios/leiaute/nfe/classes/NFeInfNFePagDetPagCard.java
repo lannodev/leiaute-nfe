@@ -19,31 +19,34 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("card")
-@Root(name = "card")
+@XmlRootElement(name = "card")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFePagDetPagCard extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("tpintegra")
-    @Element(name = "tpIntegra", required = false)
+    @XmlElement(name = "tpIntegra")
     private String tpIntegra;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cnpj")
-    @Element(name = "CNPJ", required = false)
+    @XmlElement(name = "CNPJ")
     private String CNPJ;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("tbanc")
-    @Element(name = "tBand", required = false)
+    @XmlElement(name = "tBand")
     private String tBand;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("caut")
-    @Element(name = "cAut", required = false)
+    @XmlElement(name = "cAut")
     private String cAut;
 
     public NFeInfNFePagDetPagCard() {}

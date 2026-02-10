@@ -19,41 +19,44 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("ipi")
-@Root(name = "IPI")
+@XmlRootElement(name = "IPI")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetImpostoIPI extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cnpjprod")
-    @Element(name = "CNPJProd", required = false)
+    @XmlElement(name = "CNPJProd")
     private String CNPJProd;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cselo")
-    @Element(name = "cSelo", required = false)
+    @XmlElement(name = "cSelo")
     private String cSelo;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("qselo")
-    @Element(name = "qSelo", required = false)
+    @XmlElement(name = "qSelo")
     private String qSelo;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cenq")
-    @Element(name = "cEnq", required = false)
+    @XmlElement(name = "cEnq")
     private String cEnq;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ipitrib")
-    @Element(name = "IPITrib", required = false)
+    @XmlElement(name = "IPITrib")
     private NFeInfNFeDetImpostoIPIIPITrib IPITrib;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ipint")
-    @Element(name = "IPINT", required = false)
+    @XmlElement(name = "IPINT")
     private NFeInfNFeDetImpostoIPIIPINT IPINT;
 
     public NFeInfNFeDetImpostoIPI() {}

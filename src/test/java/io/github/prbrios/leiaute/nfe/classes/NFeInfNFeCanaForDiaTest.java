@@ -15,12 +15,13 @@
  */
 package io.github.prbrios.leiaute.nfe.classes;
 
-import io.github.prbrios.leiaute.nfe.classes.NFeInfNFeCanaForDia;
-import java.util.ArrayList;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
+import org.junit.jupiter.api.Test;
+
+import java.io.StringReader;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.core.Persister;
 
 public class NFeInfNFeCanaForDiaTest {
 
@@ -37,8 +38,9 @@ public class NFeInfNFeCanaForDiaTest {
 
     @Test
     public void test2() throws Exception {
-        Persister persister = new Persister();
-        NFeInfNFeCanaForDia obj = persister.read(NFeInfNFeCanaForDia.class, XML);
+        JAXBContext context = JAXBContext.newInstance(NFeInfNFeCanaForDia.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        NFeInfNFeCanaForDia obj =(NFeInfNFeCanaForDia) unmarshaller.unmarshal(new StringReader(XML));
 
         assertEquals("0", obj.getQtde());
         assertEquals("1", obj.getDia());

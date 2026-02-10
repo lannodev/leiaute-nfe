@@ -19,26 +19,29 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("refecf")
-@Root(name = "refECF")
+@XmlRootElement(name = "refECF")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeIdeNFrefRefECF extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("mod")
-    @Element(name = "mod", required = false)
+    @XmlElement(name = "mod")
     private String mod;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("necf")
-    @Element(name = "nECF", required = false)
+    @XmlElement(name = "nECF")
     private String nECF;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ncoo")
-    @Element(name = "nCOO", required = false)
+    @XmlElement(name = "nCOO")
     private String nCOO;
 
     public NFeInfNFeIdeNFrefRefECF() {}

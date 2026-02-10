@@ -16,10 +16,13 @@
 package io.github.prbrios.leiaute.nfe.classes;
 
 
-import io.github.prbrios.leiaute.nfe.classes.NFeInfNFeEmitEnderEmit;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
 import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.core.Persister;
+
+import java.io.StringReader;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class NFeInfNFeEmitEnderEmitTest {
 
@@ -45,8 +48,9 @@ public class NFeInfNFeEmitEnderEmitTest {
 
     @Test
     public void test2() throws Exception {
-        Persister persister = new Persister();
-        NFeInfNFeEmitEnderEmit obj = persister.read(NFeInfNFeEmitEnderEmit.class, XML);
+        JAXBContext context = JAXBContext.newInstance(NFeInfNFeEmitEnderEmit.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        NFeInfNFeEmitEnderEmit obj =(NFeInfNFeEmitEnderEmit) unmarshaller.unmarshal(new StringReader(XML));
 
         assertEquals("0", obj.getxLgr());
         assertEquals("1", obj.getNro());

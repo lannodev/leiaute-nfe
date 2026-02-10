@@ -19,65 +19,67 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @JsonRootName("cana")
-@Root(name = "cana")
+@XmlRootElement(name = "cana")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeCana extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("safra")
-    @Element(name = "safra", required = false)
+    @XmlElement(name = "safra")
     private String safra;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ref")
-    @Element(name = "ref", required = false)
+    @XmlElement(name = "ref")
     private String ref;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("fordia")
-    @ElementList(name = "forDia", required = false, inline = true)
+	@XmlElement(name = "forDia")
     private List<NFeInfNFeCanaForDia> forDia = new ArrayList<NFeInfNFeCanaForDia>();
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("qtotmes")
-    @Element(name = "qTotMes", required = false)
+    @XmlElement(name = "qTotMes")
     private String qTotMes;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("qtotant")
-    @Element(name = "qTotAnt", required = false)
+    @XmlElement(name = "qTotAnt")
     private String qTotAnt;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("qtotger")
-    @Element(name = "qTotGer", required = false)
+    @XmlElement(name = "qTotGer")
     private String qTotGer;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("deduc")
-    @ElementList(name = "deduc", required = false, inline = true)
+	@XmlElement(name = "deduc")
     private List<NFeInfNFeCanaDeduc> deduc = new ArrayList<NFeInfNFeCanaDeduc>();
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vfor")
-    @Element(name = "vFor", required = false)
+    @XmlElement(name = "vFor")
     private String vFor;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vtotded")
-    @Element(name = "vTotDed", required = false)
+    @XmlElement(name = "vTotDed")
     private String vTotDed;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vliqfor")
-    @Element(name = "vLiqFor", required = false)
+    @XmlElement(name = "vLiqFor")
     private String vLiqFor;
 
     public NFeInfNFeCana() {}

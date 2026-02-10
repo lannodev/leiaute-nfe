@@ -19,90 +19,93 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("icmsst")
-@Root(name = "ICMSST")
+@XmlRootElement(name = "ICMSST")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetImpostoICMSICMSST extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("orig")
-    @Element(name = "orig", required = false)
+    @XmlElement(name = "orig")
     private String orig;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cst")
-    @Element(name = "CST", required = false)
+    @XmlElement(name = "CST")
     private String CST;
 
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vbcstret")
-    @Element(name = "vBCSTRet", required = false)
+    @XmlElement(name = "vBCSTRet")
     private String vBCSTRet;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("pst")
-    @Element(name = "pST", required = false)
+    @XmlElement(name = "pST")
     private String pST;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vicmssubstituto")
-    @Element(name = "vICMSSubstituto", required = false)
+    @XmlElement(name = "vICMSSubstituto")
     private String vICMSSubstituto;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vicmsstret")
-    @Element(name = "vICMSSTRet", required = false)
+    @XmlElement(name = "vICMSSTRet")
     private String vICMSSTRet;
 
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vbcfcpstret")
-    @Element(name = "vBCFCPSTRet", required = false)
+    @XmlElement(name = "vBCFCPSTRet")
     private String vBCFCPSTRet;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("pfcpstret")
-    @Element(name = "pFCPSTRet", required = false)
+    @XmlElement(name = "pFCPSTRet")
     private String pFCPSTRet;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vfcpstret")
-    @Element(name = "vFCPSTRet", required = false)
+    @XmlElement(name = "vFCPSTRet")
     private String vFCPSTRet;
 
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vbcstdest")
-    @Element(name = "vBCSTDest", required = false)
+    @XmlElement(name = "vBCSTDest")
     private String vBCSTDest;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vicmsstdest")
-    @Element(name = "vICMSSTDest", required = false)
+    @XmlElement(name = "vICMSSTDest")
     private String vICMSSTDest;
 
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("predbcefet")
-    @Element(name = "pRedBCEfet", required = false)
+    @XmlElement(name = "pRedBCEfet")
     private String pRedBCEfet;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vbcefet")
-    @Element(name = "vBCEfet", required = false)
+    @XmlElement(name = "vBCEfet")
     private String vBCEfet;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("picmsefet")
-    @Element(name = "pICMSEfet", required = false)
+    @XmlElement(name = "pICMSEfet")
     private String pICMSEfet;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vicmsefet")
-    @Element(name = "vICMSEfet", required = false)
+    @XmlElement(name = "vICMSEfet")
     private String vICMSEfet;
 
     public NFeInfNFeDetImpostoICMSICMSST() {}

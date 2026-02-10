@@ -19,26 +19,29 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("med")
-@Root(name = "med")
+@XmlRootElement(name = "med")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetProdMed extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cprodanvisa")
-    @Element(name = "cProdANVISA", required = false)
+    @XmlElement(name = "cProdANVISA")
     private String cProdANVISA;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xmotivoisencao")
-    @Element(name = "xMotivoIsencao", required = false)
+    @XmlElement(name = "xMotivoIsencao")
     private String xMotivoIsencao;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vpmc")
-    @Element(name = "vPMC", required = false)
+    @XmlElement(name = "vPMC")
     private String vPMC;
 
     public NFeInfNFeDetProdMed() {}

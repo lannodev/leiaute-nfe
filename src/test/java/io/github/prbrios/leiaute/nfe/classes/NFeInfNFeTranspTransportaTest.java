@@ -16,10 +16,13 @@
 package io.github.prbrios.leiaute.nfe.classes;
 
 
-import io.github.prbrios.leiaute.nfe.classes.NFeInfNFeTranspTransporta;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
 import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.core.Persister;
+
+import java.io.StringReader;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class NFeInfNFeTranspTransportaTest {
 
@@ -41,8 +44,9 @@ public class NFeInfNFeTranspTransportaTest {
 
     @Test
     public void test2() throws Exception {
-        Persister persister = new Persister();
-        NFeInfNFeTranspTransporta obj = persister.read(NFeInfNFeTranspTransporta.class, XML);
+        JAXBContext context = JAXBContext.newInstance(NFeInfNFeTranspTransporta.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        NFeInfNFeTranspTransporta obj =(NFeInfNFeTranspTransporta) unmarshaller.unmarshal(new StringReader(XML));
 
         assertEquals("0", obj.getCNPJ());
         assertEquals("1", obj.getCPF());

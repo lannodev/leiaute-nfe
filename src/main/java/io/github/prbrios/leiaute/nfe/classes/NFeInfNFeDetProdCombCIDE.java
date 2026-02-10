@@ -19,26 +19,29 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("cide")
-@Root(name = "CIDE")
+@XmlRootElement(name = "CIDE")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetProdCombCIDE extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("qbcprod")
-    @Element(name = "qBCProd", required = false)
+    @XmlElement(name = "qBCProd")
     private String qBCProd;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("valiqprod")
-    @Element(name = "vAliqProd", required = false)
+    @XmlElement(name = "vAliqProd")
     private String vAliqProd;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vcide")
-    @Element(name = "vCIDE", required = false)
+    @XmlElement(name = "vCIDE")
     private String vCIDE;
 
     public NFeInfNFeDetProdCombCIDE() {}

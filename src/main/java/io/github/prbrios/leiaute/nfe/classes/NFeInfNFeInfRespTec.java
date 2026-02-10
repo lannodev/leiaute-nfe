@@ -19,41 +19,44 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("infresptec")
-@Root(name = "infRespTec")
+@XmlRootElement(name = "infRespTec")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeInfRespTec extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cnpj")
-    @Element(name = "CNPJ", required = false)
+    @XmlElement(name = "CNPJ")
     private String CNPJ;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xcontato")
-    @Element(name = "xContato", required = false)
+    @XmlElement(name = "xContato")
     private String xContato;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("email")
-    @Element(name = "email", required = false)
+    @XmlElement(name = "email")
     private String email;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("fone")
-    @Element(name = "fone", required = false)
+    @XmlElement(name = "fone")
     private String fone;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("idcsrt")
-    @Element(name = "idCSRT", required = false)
+    @XmlElement(name = "idCSRT")
     private String idCSRT;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("hashcsrt")
-    @Element(name = "hashCSRT", required = false)
+    @XmlElement(name = "hashCSRT")
     private String hashCSRT;
 
     public NFeInfNFeInfRespTec() {}

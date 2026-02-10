@@ -16,16 +16,19 @@
 package io.github.prbrios.leiaute.nfe.classes.evento.envio;
 
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
-@Root(name = "autXML")
+@XmlRootElement(name = "autXML")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class EnvEventoEventoInfEventoDetEventoAutXML extends Base {
 
-	@Element(name="CNPJ", required=false)
+	@XmlElement(name="CNPJ")
 	private String CNPJ;
 	
-	@Element(name="CPF", required=false)
+	@XmlElement(name="CPF")
 	private String CPF;
 
 	public String getCNPJ() {

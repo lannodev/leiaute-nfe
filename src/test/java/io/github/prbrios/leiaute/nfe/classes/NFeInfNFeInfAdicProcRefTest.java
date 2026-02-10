@@ -16,10 +16,13 @@
 package io.github.prbrios.leiaute.nfe.classes;
 
 
-import io.github.prbrios.leiaute.nfe.classes.NFeInfNFeInfAdicProcRef;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
 import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.core.Persister;
+
+import java.io.StringReader;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class NFeInfNFeInfAdicProcRefTest {
 
@@ -37,8 +40,9 @@ public class NFeInfNFeInfAdicProcRefTest {
 
     @Test
     public void test2() throws Exception {
-        Persister persister = new Persister();
-        NFeInfNFeInfAdicProcRef obj = persister.read(NFeInfNFeInfAdicProcRef.class, XML);
+        JAXBContext context = JAXBContext.newInstance(NFeInfNFeInfAdicProcRef.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        NFeInfNFeInfAdicProcRef obj =(NFeInfNFeInfAdicProcRef) unmarshaller.unmarshal(new StringReader(XML));
 
         assertEquals("0", obj.getnProc());
         assertEquals("1", obj.getIndProc());

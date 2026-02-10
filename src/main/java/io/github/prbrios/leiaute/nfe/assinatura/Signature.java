@@ -15,23 +15,25 @@
  */
 package io.github.prbrios.leiaute.nfe.assinatura;
 
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Namespace;
+import jakarta.xml.bind.annotation.*;
 
-@Namespace(reference = "http://www.w3.org/2000/09/xmldsig#")
+@XmlRootElement(
+		name = "Signature",
+		namespace = "http://www.w3.org/2000/09/xmldsig#"
+)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Signature {
 	
-	@Attribute(name = "Id", required = false)
+	@XmlAttribute(name = "Id", required = false)
 	private String id;
 	
-    @Element(name = "SignedInfo", required = false)
+    @XmlElement(name = "SignedInfo")
     private SignedInfo signedInfo;
 
-    @Element(name = "SignatureValue", required = false)
+    @XmlElement(name = "SignatureValue")
     private String signatureValue;
 
-    @Element(name = "KeyInfo", required = false)
+    @XmlElement(name = "KeyInfo")
     private KeyInfo keyInfo;
 
 	public String getId() {

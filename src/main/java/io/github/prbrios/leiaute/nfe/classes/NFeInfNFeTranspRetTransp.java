@@ -19,41 +19,44 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("rettransp")
-@Root(name = "retTransp")
+@XmlRootElement(name = "retTransp")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeTranspRetTransp extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vserv")
-    @Element(name = "vServ", required = false)
+    @XmlElement(name = "vServ")
     private String vServ;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vbcret")
-    @Element(name = "vBCRet", required = false)
+    @XmlElement(name = "vBCRet")
     private String vBCRet;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("picmsret")
-    @Element(name = "pICMSRet", required = false)
+    @XmlElement(name = "pICMSRet")
     private String pICMSRet;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vicmsret")
-    @Element(name = "vICMSRet", required = false)
+    @XmlElement(name = "vICMSRet")
     private String vICMSRet;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cfop")
-    @Element(name = "CFOP", required = false)
+    @XmlElement(name = "CFOP")
     private String CFOP;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cmunfg")
-    @Element(name = "cMunFG", required = false)
+    @XmlElement(name = "cMunFG")
     private String cMunFG;
 
     public NFeInfNFeTranspRetTransp() {}

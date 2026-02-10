@@ -1,13 +1,16 @@
 package io.github.prbrios.leiaute.nfe.classes.evento.retorno;
 
-import io.github.prbrios.leiaute.nfe.classes.evento.retorno.RetEnvEventoRetEvento;
-import org.simpleframework.xml.Root;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.core.Persister;
 
-@Root(name = "retEvento")
+import java.io.StringReader;
+
+import static io.github.prbrios.leiaute.nfe.utils.XmlTestUtils.normalizeXml;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+@XmlRootElement(name = "retEvento")
 public class RetEnvEventoRetEventoTest {
 
     public static final String XML = "<retEvento versao=\"0\"/>";
@@ -17,13 +20,14 @@ public class RetEnvEventoRetEventoTest {
 		RetEnvEventoRetEvento obj = new RetEnvEventoRetEvento();
         obj.setVersao("0");
         
-		assertEquals(XML, obj.toString());
+		assertEquals(normalizeXml(XML), normalizeXml(obj.toString()));
 	}
 
 	@Test
 	public void test2() throws Exception {
-		Persister persister = new Persister();
-		RetEnvEventoRetEvento obj = persister.read(RetEnvEventoRetEvento.class, XML);
+		JAXBContext context = JAXBContext.newInstance(RetEnvEventoRetEvento.class);
+		Unmarshaller unmarshaller = context.createUnmarshaller();
+		RetEnvEventoRetEvento obj =(RetEnvEventoRetEvento) unmarshaller.unmarshal(new StringReader(XML));
 
 		assertEquals("0", obj.getVersao());
 	}

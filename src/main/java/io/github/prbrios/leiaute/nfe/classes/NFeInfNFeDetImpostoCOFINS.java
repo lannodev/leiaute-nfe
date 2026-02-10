@@ -19,31 +19,34 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("cofins")
-@Root(name = "COFINS")
+@XmlRootElement(name = "COFINS")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetImpostoCOFINS extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cofinsaliq")
-    @Element(name = "COFINSAliq", required = false)
+    @XmlElement(name = "COFINSAliq")
     private NFeInfNFeDetImpostoCOFINSCOFINSAliq COFINSAliq;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cofinsqtde")
-    @Element(name = "COFINSQtde", required = false)
+    @XmlElement(name = "COFINSQtde")
     private NFeInfNFeDetImpostoCOFINSCOFINSQtde COFINSQtde;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cofinsnt")
-    @Element(name = "COFINSNT", required = false)
+    @XmlElement(name = "COFINSNT")
     private NFeInfNFeDetImpostoCOFINSCOFINSNT COFINSNT;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cofinsoutr")
-    @Element(name = "COFINSOutr", required = false)
+    @XmlElement(name = "COFINSOutr")
     private NFeInfNFeDetImpostoCOFINSCOFINSOutr COFINSOutr;
 
     public NFeInfNFeDetImpostoCOFINS() {}

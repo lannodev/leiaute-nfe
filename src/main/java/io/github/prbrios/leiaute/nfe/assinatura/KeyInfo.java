@@ -15,14 +15,17 @@
  */
 package io.github.prbrios.leiaute.nfe.assinatura;
 
-import org.simpleframework.xml.Element;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class KeyInfo {
 
     @SuppressWarnings("unused")
 	private static final long serialVersionUID = 7949034334524924221L;
 
-    @Element(name = "X509Data", required = false)
+    @XmlElement(name = "X509Data", required = false)
     private X509Data data;
 
     public X509Data getData() {

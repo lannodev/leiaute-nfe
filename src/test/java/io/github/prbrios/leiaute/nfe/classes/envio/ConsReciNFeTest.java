@@ -15,10 +15,14 @@
  */
 package io.github.prbrios.leiaute.nfe.classes.envio;
 
-import io.github.prbrios.leiaute.nfe.classes.envio.ConsReciNFe;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
 import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.core.Persister;
+
+import java.io.StringReader;
+
+import static io.github.prbrios.leiaute.nfe.utils.XmlTestUtils.normalizeXml;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ConsReciNFeTest {
 	
@@ -31,13 +35,14 @@ public class ConsReciNFeTest {
         obj.setTpAmb("1");
         obj.setnRec("2");
         
-		assertEquals(XML, obj.toString());
+		assertEquals(normalizeXml(XML), normalizeXml(obj.toString()));
 	}
 
 	@Test
 	public void test2() throws Exception {
-		Persister persister = new Persister();
-		ConsReciNFe obj = persister.read(ConsReciNFe.class, XML);
+		JAXBContext context = JAXBContext.newInstance(ConsReciNFe.class);
+		Unmarshaller unmarshaller = context.createUnmarshaller();
+		ConsReciNFe obj =(ConsReciNFe) unmarshaller.unmarshal(new StringReader(XML));
 
 		assertEquals("0", obj.getVersao());
         assertEquals("1", obj.getTpAmb());

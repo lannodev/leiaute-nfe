@@ -15,34 +15,37 @@
  */
 package io.github.prbrios.leiaute.nfe.classes;
 
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Namespace;
-import org.simpleframework.xml.Root;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
 import io.github.prbrios.leiaute.nfe.assinatura.Signature;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("nfe")
-@Root(name = "NFe")
-@Namespace(reference = "http://www.portalfiscal.inf.br/nfe")
+@XmlRootElement(
+		name = "NFe",
+		namespace = "http://www.portalfiscal.inf.br/nfe"
+)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFe extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("infnfe")
-    @Element(name = "infNFe", required = false)
+    @XmlElement(name = "infNFe", required = false)
     private NFeInfNFe infNFe;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("infnfesupl")
-    @Element(name = "infNFeSupl", required = false)
+    @XmlElement(name = "infNFeSupl", required = false)
     private NFeInfNFeSupl infNFeSupl;
 
     @JsonIgnore
-    @Element(name = "Signature", required = false)
+    @XmlElement(name = "Signature", required = false)
     private Signature signature;
 
     public NFe() {}

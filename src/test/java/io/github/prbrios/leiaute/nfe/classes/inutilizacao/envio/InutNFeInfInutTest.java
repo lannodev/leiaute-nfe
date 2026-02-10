@@ -15,10 +15,14 @@
  */
 package io.github.prbrios.leiaute.nfe.classes.inutilizacao.envio;
 
-import io.github.prbrios.leiaute.nfe.classes.inutilizacao.envio.InutNFeInfInut;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
 import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.core.Persister;
+
+import java.io.StringReader;
+
+import static io.github.prbrios.leiaute.nfe.utils.XmlTestUtils.normalizeXml;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class InutNFeInfInutTest {
 
@@ -39,13 +43,14 @@ public class InutNFeInfInutTest {
         obj.setnNFFin("9");
         obj.setxJust("10");
 
-		assertEquals(XML, obj.toString());
+        assertEquals(normalizeXml(XML), normalizeXml(obj.toString()));
 	}
 
 	@Test
 	public void test2() throws Exception {
-		Persister persister = new Persister();
-		InutNFeInfInut obj = persister.read(InutNFeInfInut.class, XML);
+        JAXBContext context = JAXBContext.newInstance(InutNFeInfInut.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        InutNFeInfInut obj =(InutNFeInfInut) unmarshaller.unmarshal(new StringReader(XML));
 
         assertEquals("0", obj.getId());
         assertEquals("1", obj.getTpAmb());

@@ -19,21 +19,25 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlElement;
+
 
 @JsonRootName("autxml")
-@Root(name = "autXML")
+@XmlRootElement(name = "autXML")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeAutXML extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cnpj")
-    @Element(name = "CNPJ", required = false)
+    @XmlElement(name = "CNPJ")
     private String CNPJ;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cpf")
-    @Element(name = "CPF", required = false)
+    @XmlElement(name = "CPF")
     private String CPF;
 
     public NFeInfNFeAutXML() {}

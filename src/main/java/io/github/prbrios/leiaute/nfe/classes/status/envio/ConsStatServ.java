@@ -15,39 +15,35 @@
  */
 package io.github.prbrios.leiaute.nfe.classes.status.envio;
 
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Namespace;
-import org.simpleframework.xml.Root;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
+import jakarta.xml.bind.annotation.*;
 
 @JsonRootName("consstatserv")
-@Namespace(reference = "http://www.portalfiscal.inf.br/nfe")
-@Root(name = "consStatServ")
+@XmlRootElement(name = "consStatServ", namespace = "http://www.portalfiscal.inf.br/nfe")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ConsStatServ extends Base {
 
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("versao")
-	@Attribute(name = "versao", required=false)
+	@XmlAttribute(name = "versao")
 	private String versao;
 	
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("tpAmb")
-	@Element(name = "tpAmb", required=false)
+	@XmlElement(name = "tpAmb")
 	private String tpAmb;
 	
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cUF")
-	@Element(name = "cUF", required=false)
+	@XmlElement(name = "cUF")
 	private String cUF;
 	
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xServ")
-	@Element(name = "xServ", required=false)
+	@XmlElement(name = "xServ")
 	private String xServ;
 
 	public String getVersao() {

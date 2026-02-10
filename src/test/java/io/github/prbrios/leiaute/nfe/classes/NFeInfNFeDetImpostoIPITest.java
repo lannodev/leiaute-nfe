@@ -16,10 +16,13 @@
 package io.github.prbrios.leiaute.nfe.classes;
 
 
-import io.github.prbrios.leiaute.nfe.classes.NFeInfNFeDetImpostoIPI;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
 import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.core.Persister;
+
+import java.io.StringReader;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class NFeInfNFeDetImpostoIPITest {
 
@@ -38,8 +41,9 @@ public class NFeInfNFeDetImpostoIPITest {
 
     @Test
     public void test2() throws Exception {
-        Persister persister = new Persister();
-        NFeInfNFeDetImpostoIPI obj = persister.read(NFeInfNFeDetImpostoIPI.class, XML);
+        JAXBContext context = JAXBContext.newInstance(NFeInfNFeDetImpostoIPI.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        NFeInfNFeDetImpostoIPI obj =(NFeInfNFeDetImpostoIPI) unmarshaller.unmarshal(new StringReader(XML));
 
         assertEquals("0", obj.getCNPJProd());
         assertEquals("1", obj.getcSelo());

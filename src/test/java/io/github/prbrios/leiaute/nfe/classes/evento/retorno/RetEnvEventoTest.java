@@ -1,9 +1,13 @@
 package io.github.prbrios.leiaute.nfe.classes.evento.retorno;
 
-import io.github.prbrios.leiaute.nfe.classes.evento.retorno.RetEnvEvento;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
 import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.core.Persister;
+
+import java.io.StringReader;
+
+import static io.github.prbrios.leiaute.nfe.utils.XmlTestUtils.normalizeXml;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RetEnvEventoTest {
 
@@ -20,13 +24,14 @@ public class RetEnvEventoTest {
         obj.setcStat("5");
         obj.setxMotivo("6");
 
-        assertEquals(XML, obj.toString());
+        assertEquals(normalizeXml(XML), normalizeXml(obj.toString()));
     }
 
     @Test
     public void test2() throws Exception {
-        Persister persister = new Persister();
-        RetEnvEvento obj = persister.read(RetEnvEvento.class, XML);
+        JAXBContext context = JAXBContext.newInstance(RetEnvEvento.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        RetEnvEvento obj =(RetEnvEvento) unmarshaller.unmarshal(new StringReader(XML));
 
         assertEquals("0", obj.getVersao());
         assertEquals("1", obj.getIdLote());

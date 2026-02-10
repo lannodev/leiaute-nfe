@@ -16,10 +16,13 @@
 package io.github.prbrios.leiaute.nfe.classes;
 
 
-import io.github.prbrios.leiaute.nfe.classes.NFeInfNFeTotalICMSTot;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
 import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.core.Persister;
+
+import java.io.StringReader;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class NFeInfNFeTotalICMSTotTest {
 
@@ -57,8 +60,9 @@ public class NFeInfNFeTotalICMSTotTest {
 
     @Test
     public void test2() throws Exception {
-        Persister persister = new Persister();
-        NFeInfNFeTotalICMSTot obj = persister.read(NFeInfNFeTotalICMSTot.class, XML);
+        JAXBContext context = JAXBContext.newInstance(NFeInfNFeTotalICMSTot.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        NFeInfNFeTotalICMSTot obj =(NFeInfNFeTotalICMSTot) unmarshaller.unmarshal(new StringReader(XML));
 
         assertEquals("0", obj.getvBC());
         assertEquals("1", obj.getvICMS());

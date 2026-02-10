@@ -19,36 +19,39 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("rastro")
-@Root(name = "rastro")
+@XmlRootElement(name = "rastro")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetProdRastro extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("nlote")
-    @Element(name = "nLote", required = false)
+    @XmlElement(name = "nLote")
     private String nLote;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("qlote")
-    @Element(name = "qLote", required = false)
+    @XmlElement(name = "qLote")
     private String qLote;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("dfab")
-    @Element(name = "dFab", required = false)
+    @XmlElement(name = "dFab")
     private String dFab;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("dval")
-    @Element(name = "dVal", required = false)
+    @XmlElement(name = "dVal")
     private String dVal;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cagreg")
-    @Element(name = "cAgreg", required = false)
+    @XmlElement(name = "cAgreg")
     private String cAgreg;
 
     public NFeInfNFeDetProdRastro() {}

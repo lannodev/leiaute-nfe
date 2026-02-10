@@ -15,23 +15,20 @@
  */
 package io.github.prbrios.leiaute.nfe;
 
-import org.simpleframework.xml.convert.Converter;
-import org.simpleframework.xml.stream.InputNode;
-import org.simpleframework.xml.stream.OutputNode;
+import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 
-public class EmptyElementConverter  implements Converter<String> {
+public class EmptyElementConverter  extends XmlAdapter<String, String> {
 
     @Override
-    public String read(InputNode node) throws Exception {
-    	String value = node.getValue();
-        if(value == null) {
-            value = "";
+    public String unmarshal(String value) {
+        if (value == null) {
+            return "";
         }
         return value;
     }
 
     @Override
-    public void write(OutputNode node, String value) throws Exception {
-    	node.setValue(value);
+    public String marshal(String value) {
+        return value;
     }
 }

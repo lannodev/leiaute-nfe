@@ -19,26 +19,29 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("procref")
-@Root(name = "procRef")
+@XmlRootElement(name = "procRef")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeInfAdicProcRef extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("nproc")
-    @Element(name = "nProc", required = false)
+    @XmlElement(name = "nProc")
     private String nProc;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("indproc")
-    @Element(name = "indProc", required = false)
+    @XmlElement(name = "indProc")
     private String indProc;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("tpato")
-    @Element(name = "tpAto", required = false)
+    @XmlElement(name = "tpAto")
     private String tpAto;
 
     public NFeInfNFeInfAdicProcRef() {}

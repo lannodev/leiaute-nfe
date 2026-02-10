@@ -19,26 +19,29 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("exporta")
-@Root(name = "exporta")
+@XmlRootElement(name = "exporta")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeExporta extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ufsaidapais")
-    @Element(name = "UFSaidaPais", required = false)
+    @XmlElement(name = "UFSaidaPais")
     private String UFSaidaPais;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xlocexporta")
-    @Element(name = "xLocExporta", required = false)
+    @XmlElement(name = "xLocExporta")
     private String xLocExporta;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xlocdespacho")
-    @Element(name = "xLocDespacho", required = false)
+    @XmlElement(name = "xLocDespacho")
     private String xLocDespacho;
 
     public NFeInfNFeExporta() {}

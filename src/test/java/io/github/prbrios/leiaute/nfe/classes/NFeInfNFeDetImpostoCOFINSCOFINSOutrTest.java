@@ -16,11 +16,13 @@
 package io.github.prbrios.leiaute.nfe.classes;
 
 
-
-import io.github.prbrios.leiaute.nfe.classes.NFeInfNFeDetImpostoCOFINSCOFINSOutr;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
 import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.core.Persister;
+
+import java.io.StringReader;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class NFeInfNFeDetImpostoCOFINSCOFINSOutrTest {
     
@@ -41,8 +43,9 @@ public class NFeInfNFeDetImpostoCOFINSCOFINSOutrTest {
     
     @Test
     public void test2() throws Exception{
-        Persister persister = new Persister();
-        NFeInfNFeDetImpostoCOFINSCOFINSOutr obj = persister.read(NFeInfNFeDetImpostoCOFINSCOFINSOutr.class, XML);
+        JAXBContext context = JAXBContext.newInstance(NFeInfNFeDetImpostoCOFINSCOFINSOutr.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        NFeInfNFeDetImpostoCOFINSCOFINSOutr obj =(NFeInfNFeDetImpostoCOFINSCOFINSOutr) unmarshaller.unmarshal(new StringReader(XML));
         
         assertEquals("01", obj.getCST());
         assertEquals("3.00", obj.getpCOFINS());

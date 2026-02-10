@@ -16,11 +16,15 @@
 package io.github.prbrios.leiaute.nfe.classes;
 
 
-import io.github.prbrios.leiaute.nfe.classes.NFe;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
+import org.junit.jupiter.api.Test;
+
+import java.io.StringReader;
+
+import static io.github.prbrios.leiaute.nfe.utils.XmlTestUtils.normalizeXml;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.core.Persister;
 
 
 public class NFeTest {
@@ -31,13 +35,14 @@ public class NFeTest {
     public void test1() {
         NFe obj = new NFe();
 
-        assertEquals(XML, obj.toString());
+        assertEquals(normalizeXml(XML), normalizeXml(obj.toString()));
     }
 
     @Test
     public void test2() throws Exception {
-        Persister persister = new Persister();
-        persister.read(NFe.class, XML);
+        JAXBContext context = JAXBContext.newInstance(NFe.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        NFe obj =(NFe) unmarshaller.unmarshal(new StringReader(XML));
 
         assertTrue(true);
     }

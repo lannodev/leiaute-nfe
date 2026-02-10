@@ -19,16 +19,19 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("ipi")
-@Root(name = "IPI")
+@XmlRootElement(name = "IPI")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetImpostoDevolIPI extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vipidevol")
-    @Element(name = "vIPIDevol", required = false)
+    @XmlElement(name = "vIPIDevol")
     private String vIPIDevol;
 
     public NFeInfNFeDetImpostoDevolIPI() {}

@@ -19,46 +19,49 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("rettrib")
-@Root(name = "retTrib")
+@XmlRootElement(name = "retTrib")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeTotalRetTrib extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vretpis")
-    @Element(name = "vRetPIS", required = false)
+    @XmlElement(name = "vRetPIS")
     private String vRetPIS;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vretcofins")
-    @Element(name = "vRetCOFINS", required = false)
+    @XmlElement(name = "vRetCOFINS")
     private String vRetCOFINS;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vretcsll")
-    @Element(name = "vRetCSLL", required = false)
+    @XmlElement(name = "vRetCSLL")
     private String vRetCSLL;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vbcirrf")
-    @Element(name = "vBCIRRF", required = false)
+    @XmlElement(name = "vBCIRRF")
     private String vBCIRRF;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("virrf")
-    @Element(name = "vIRRF", required = false)
+    @XmlElement(name = "vIRRF")
     private String vIRRF;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vbcretprev")
-    @Element(name = "vBCRetPrev", required = false)
+    @XmlElement(name = "vBCRetPrev")
     private String vBCRetPrev;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vretprev")
-    @Element(name = "vRetPrev", required = false)
+    @XmlElement(name = "vRetPrev")
     private String vRetPrev;
 
     public NFeInfNFeTotalRetTrib() {}

@@ -19,61 +19,64 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("emit")
-@Root(name = "emit")
+@XmlRootElement(name = "emit")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeEmit extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cnpj")
-    @Element(name = "CNPJ", required = false)
+    @XmlElement(name = "CNPJ")
     private String CNPJ;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cpf")
-    @Element(name = "CPF", required = false)
+    @XmlElement(name = "CPF")
     private String CPF;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xnome")
-    @Element(name = "xNome", required = false)
+    @XmlElement(name = "xNome")
     private String xNome;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xfant")
-    @Element(name = "xFant", required = false)
+    @XmlElement(name = "xFant")
     private String xFant;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("enderemit")
-    @Element(name = "enderEmit", required = false)
+    @XmlElement(name = "enderEmit")
     private NFeInfNFeEmitEnderEmit enderEmit;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ie")
-    @Element(name = "IE", required = false)
+    @XmlElement(name = "IE")
     private String IE;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("iest")
-    @Element(name = "IEST", required = false)
+    @XmlElement(name = "IEST")
     private String IEST;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("im")
-    @Element(name = "IM", required = false)
+    @XmlElement(name = "IM")
     private String IM;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cnae")
-    @Element(name = "CNAE", required = false)
+    @XmlElement(name = "CNAE")
     private String CNAE;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("crt")
-    @Element(name = "CRT", required = false)
+    @XmlElement(name = "CRT")
     private String CRT;
 
     public NFeInfNFeEmit() {}

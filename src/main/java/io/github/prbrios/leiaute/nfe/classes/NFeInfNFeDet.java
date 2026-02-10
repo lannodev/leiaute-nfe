@@ -19,42 +19,41 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.*;
 
 @JsonRootName("det")
-@Root(name = "det")
+@XmlRootElement(name = "det")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDet extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("nitem")
-    @Attribute(name = "nItem", required = false)
+    @XmlAttribute(name = "nItem")
     private String nItem;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("prod")
-    @Element(name = "prod", required = false)
+    @XmlElement(name = "prod")
     private NFeInfNFeDetProd prod;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("imposto")
-    @Element(name = "imposto", required = false)
+    @XmlElement(name = "imposto")
     private NFeInfNFeDetImposto imposto;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("impostodevol")
-    @Element(name = "impostoDevol", required = false)
+    @XmlElement(name = "impostoDevol")
     private NFeInfNFeDetImpostoDevol impostoDevol;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("infadprod")
-    @Element(name = "infAdProd", required = false)
+    @XmlElement(name = "infAdProd")
     private String infAdProd;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("obsitem")
-    @Element(name = "obsItem", required = false)
+    @XmlElement(name = "obsItem")
     private NFeInfNFeDetObsItem obsItem;
 
     public NFeInfNFeDet() {}

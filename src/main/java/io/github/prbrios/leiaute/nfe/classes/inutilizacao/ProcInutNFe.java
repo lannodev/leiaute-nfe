@@ -16,23 +16,21 @@
 package io.github.prbrios.leiaute.nfe.classes.inutilizacao;
 
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
-
 import io.github.prbrios.leiaute.nfe.classes.inutilizacao.envio.InutNFe;
 import io.github.prbrios.leiaute.nfe.classes.inutilizacao.retorno.RetInutNFe;
+import jakarta.xml.bind.annotation.*;
 
-@Root(name = "procInutNFe")
+@XmlRootElement(name = "procInutNFe")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ProcInutNFe extends Base {
 
-    @Attribute(name = "versao", required = false)
+    @XmlAttribute(name = "versao")
     private String versao;
 
-    @Element(name = "inutNFe", required = false)
+    @XmlElement(name = "inutNFe")
     private InutNFe inutNFe;
 
-    @Element(name = "retInutNFe", required = false)
+    @XmlElement(name = "retInutNFe")
     private RetInutNFe retInutNFe;
 
 	public String getVersao() {

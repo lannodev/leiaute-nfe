@@ -15,11 +15,14 @@
  */
 package io.github.prbrios.leiaute.nfe.classes;
 
-import io.github.prbrios.leiaute.nfe.classes.NFeInfNFeDetObsItemObsCont;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
+import org.junit.jupiter.api.Test;
+
+import java.io.StringReader;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.core.Persister;
 
 public class NFeInfNFeDetObsItemObsContTest {
 
@@ -36,8 +39,10 @@ public class NFeInfNFeDetObsItemObsContTest {
 
     @Test
     public void test2() throws Exception {
-        Persister persister = new Persister();
-        NFeInfNFeDetObsItemObsCont obj = persister.read(NFeInfNFeDetObsItemObsCont.class, XML);
+        JAXBContext context = JAXBContext.newInstance(NFeInfNFeDetObsItemObsCont.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        NFeInfNFeDetObsItemObsCont obj =(NFeInfNFeDetObsItemObsCont) unmarshaller.unmarshal(new StringReader(XML));
+
         assertEquals("0", obj.getxCampo());
         assertEquals("1", obj.getxTexto());
 

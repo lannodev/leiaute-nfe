@@ -19,31 +19,34 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("ii")
-@Root(name = "II")
+@XmlRootElement(name = "II")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetImpostoII extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vbc")
-    @Element(name = "vBC", required = false)
+    @XmlElement(name = "vBC")
     private String vBC;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vdespadu")
-    @Element(name = "vDespAdu", required = false)
+    @XmlElement(name = "vDespAdu")
     private String vDespAdu;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vii")
-    @Element(name = "vII", required = false)
+    @XmlElement(name = "vII")
     private String vII;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("viof")
-    @Element(name = "vIOF", required = false)
+    @XmlElement(name = "vIOF")
     private String vIOF;
 
     public NFeInfNFeDetImpostoII() {}

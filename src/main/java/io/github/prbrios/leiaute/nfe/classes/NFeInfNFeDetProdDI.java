@@ -19,75 +19,77 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @JsonRootName("di")
-@Root(name = "DI")
+@XmlRootElement(name = "DI")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeDetProdDI extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ndi")
-    @Element(name = "nDI", required = false)
+    @XmlElement(name = "nDI")
     private String nDI;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ddi")
-    @Element(name = "dDI", required = false)
+    @XmlElement(name = "dDI")
     private String dDI;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xlocdesemb")
-    @Element(name = "xLocDesemb", required = false)
+    @XmlElement(name = "xLocDesemb")
     private String xLocDesemb;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ufdesemb")
-    @Element(name = "UFDesemb", required = false)
+    @XmlElement(name = "UFDesemb")
     private String UFDesemb;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ddesemb")
-    @Element(name = "dDesemb", required = false)
+    @XmlElement(name = "dDesemb")
     private String dDesemb;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("tpviatransp")
-    @Element(name = "tpViaTransp", required = false)
+    @XmlElement(name = "tpViaTransp")
     private String tpViaTransp;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("vafrmm")
-    @Element(name = "vAFRMM", required = false)
+    @XmlElement(name = "vAFRMM")
     private String vAFRMM;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("tpintermedio")
-    @Element(name = "tpIntermedio", required = false)
+    @XmlElement(name = "tpIntermedio")
     private String tpIntermedio;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cnpj")
-    @Element(name = "CNPJ", required = false)
+    @XmlElement(name = "CNPJ")
     private String CNPJ;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("ufterceiro")
-    @Element(name = "UFTerceiro", required = false)
+    @XmlElement(name = "UFTerceiro")
     private String UFTerceiro;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("cexportador")
-    @Element(name = "cExportador", required = false)
+    @XmlElement(name = "cExportador")
     private String cExportador;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("adi")
-    @ElementList(name = "adi", required = false, inline = true)
+    @XmlElement(name = "adi")
     private List<NFeInfNFeDetProdDIAdi> adi = new ArrayList<NFeInfNFeDetProdDIAdi>();
 
     public NFeInfNFeDetProdDI() {}

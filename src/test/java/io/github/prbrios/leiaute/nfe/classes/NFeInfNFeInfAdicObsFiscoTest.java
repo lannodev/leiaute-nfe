@@ -15,25 +15,27 @@
  */
 package io.github.prbrios.leiaute.nfe.classes;
 
-import io.github.prbrios.leiaute.nfe.classes.NFeInfNFeInfAdicObsFisco;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Unmarshaller;
+import jakarta.xml.bind.annotation.XmlElement;
+import org.junit.jupiter.api.Test;
+
+import java.io.StringReader;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.Test;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.core.Persister;
 
 public class NFeInfNFeInfAdicObsFiscoTest {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xtexto")
-    @Element(name = "xTexto", required = false)
+    @XmlElement(name = "xTexto")
     private String xTexto;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("xcampo")
-    @Element(name = "xCampo", required = false)
+    @XmlElement(name = "xCampo")
     private String xCampo;
 
     public static final String XML = "<obsFisco><xTexto>0</xTexto><xCampo>1</xCampo></obsFisco>";
@@ -49,8 +51,9 @@ public class NFeInfNFeInfAdicObsFiscoTest {
     
     @Test
     public void test2() throws Exception {
-        Persister persister = new Persister();
-        NFeInfNFeInfAdicObsFisco obj = persister.read(NFeInfNFeInfAdicObsFisco.class, XML);
+        JAXBContext context = JAXBContext.newInstance(NFeInfNFeInfAdicObsFisco.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        NFeInfNFeInfAdicObsFisco obj =(NFeInfNFeInfAdicObsFisco) unmarshaller.unmarshal(new StringReader(XML));
         
         assertEquals("0", obj.getxTexto());
         assertEquals("1", obj.getxCampo());

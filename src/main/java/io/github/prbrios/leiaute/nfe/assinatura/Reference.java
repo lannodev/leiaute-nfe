@@ -15,26 +15,24 @@
  */
 package io.github.prbrios.leiaute.nfe.assinatura;
 
+import jakarta.xml.bind.annotation.*;
+
 import java.util.List;
 
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Path;
-
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Reference {
 
-    @Attribute(name = "URI", required = false)
+	@XmlAttribute(name = "URI")
     private String uri;
 
-    @Path("Transforms")
-    @ElementList(entry = "Transform", inline = true, required = false)
+    @XmlElementWrapper(name = "Transforms")
+	@XmlElement(name = "Transform")
     private List<Transform> transform;
 
-    @Element(name = "DigestMethod", required = false)
+    @XmlElement(name = "DigestMethod")
     private DigestMethod digestMethod;
 
-    @Element(name = "DigestValue", required = false)
+    @XmlElement(name = "DigestValue")
     private String digestValue;
 
 	public String getUri() {

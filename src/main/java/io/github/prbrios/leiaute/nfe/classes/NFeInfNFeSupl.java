@@ -19,21 +19,24 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import io.github.prbrios.leiaute.nfe.Base;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @JsonRootName("infnfesupl")
-@Root(name = "infNFeSupl")
+@XmlRootElement(name = "infNFeSupl")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class NFeInfNFeSupl extends Base {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("qrcode")
-    @Element(name = "qrCode", required = false)
+    @XmlElement(name = "qrCode")
     private String qrCode;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("urlchave")
-    @Element(name = "urlChave", required = false)
+    @XmlElement(name = "urlChave")
     private String urlChave;
 
     public NFeInfNFeSupl() {}
