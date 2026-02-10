@@ -4,12 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.github.prbrios</groupId>
+    <groupId>io.github.lannodev</groupId>
     <artifactId>leiaute-nfe</artifactId>
     <version>1.0.0</version>
 
     <name>leiaute-nfe</name>
-    <url>https://github.com/prbrios/leiaute-nfe</url>
+    <url>https://github.com/lannodev/leiaute-nfe</url>
     <description>Pacote de classes que representam a estrutura do XML da NF-e</description>
 
     <licenses>
@@ -24,12 +24,16 @@
             <name>Paulo Rios</name>
             <email>prbrios@gmail.com</email>
         </developer>
+        <developer>
+            <name>Luciano Oliveira</name>
+            <email>me@lanno.dev</email>
+        </developer>
     </developers>
     
     <scm>
-        <connection>scm:git@github.com:prbrios/leiaute-nfe.git</connection>
-        <developerConnection>scm:git:ssh://github.com:prbrios/leiaute-nfe.git</developerConnection>
-        <url>https://github.com/prbrios/leiaute-nfe/tree/main</url>
+        <connection>scm:git@github.com:lannodev/leiaute-nfe.git</connection>
+        <developerConnection>scm:git:ssh://github.com:lannodev/leiaute-nfe.git</developerConnection>
+        <url>https://github.com/lannodev/leiaute-nfe/tree/main</url>
     </scm>
 
     <properties>
