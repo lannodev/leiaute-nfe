@@ -21,11 +21,7 @@
 
     <developers>
         <developer>
-            <name>Paulo Rios</name>
-            <email>prbrios@gmail.com</email>
-        </developer>
-        <developer>
-            <name>Luciano Oliveira</name>
+            <name>Luciano</name>
             <email>me@lanno.dev</email>
         </developer>
     </developers>
@@ -158,6 +154,9 @@
                         <goals>
                             <goal>sign</goal>
                         </goals>
+                        <configuration>
+                            <keyname>661C27DF1DC1D912</keyname>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
